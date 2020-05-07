@@ -12,7 +12,7 @@ import Suppliers from "./views/suppliers"
 const App:React.FC = () => (
   <BrowserRouter>
     <Switch>
-      <Route path="/course/:id" exact component ={Course} />
+      <Route path="/courses/:id" exact component ={Course} />
       <Route path="/suppliers" exact component ={Suppliers} />
       <Route path="/suppliers/:id" exact component ={Suppliers} />
     </Switch>
