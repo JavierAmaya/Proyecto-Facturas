@@ -9,8 +9,6 @@ export class  ClienteController{
     }
 
     private routes(){
-        //this.app.route("/supplier/:id/summary")
-        //.get(this.supplier_service.getOneSummary);
 
         this.app.route("/Cliente").post(this.Cliente_Service.createOne);
 
