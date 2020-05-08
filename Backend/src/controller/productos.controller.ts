@@ -12,7 +12,8 @@ export class ProductoController{
         
         this.app.route("/producto/:id")
         .get(this.producto_service.getOne)
-        .put(this.producto_service.updateOne);
+        .put(this.producto_service.updateOne)
+        .delete(this.producto_service.eliminarProducto);
         
         this.app.route("/productos").get(this.producto_service.getAll);
 

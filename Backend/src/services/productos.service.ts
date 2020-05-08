@@ -62,4 +62,10 @@ export class ProductoService{
         res.status(201).json(result[0]);
     }
 
+    public async eliminarProducto(req:Request, res: Response){
+        const result: IResultado[] = await getConnection().query(`EXEC pFacturas.SP_DELETE_PRODUCT
+        @IDProducto = ${req.params.id}`);
+        res.status(201).json(result[0]);
+    }
+
 }
