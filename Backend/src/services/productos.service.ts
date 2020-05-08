@@ -2,6 +2,7 @@ import {Request, Response} from "express";
 import {getConnection} from "typeorm";
 import {Producto,IProducto,IResultado} from "../entity/productos.entity";
 import {ViewProveedorByProducto} from "../entity/proveedorbyproduct.entity";
+import { ISupplier, IResult } from "../entity/supplier.entity";
 
 export class ProductoService{
 
@@ -46,6 +47,19 @@ export class ProductoService{
                 Message: Error.Message
             });
         }
+    }
+
+    public async agregarNuevoProducto(req:Request, res: Response){
+        const s: IProducto = req.body;
+        const result: IResultado[] = await getConnection().query(`EXEC pFacturas.SP_ADD_PRODUCT
+        @IDProducto = ${s.IDProducto} ,
+        @NameProducto ='${s.NameProducto}',
+        @Descripcion ='${s.Descripcion}',
+        @IDProveedor = ${s.IDProveedor},
+        @IDCategoria = ${s.IDCategoria},
+        @ValorCompra = ${s.ValorCompra},
+        @ValorVenta = ${s.ValorVenta}`);
+        res.status(201).json(result[0]);
     }
 
 }

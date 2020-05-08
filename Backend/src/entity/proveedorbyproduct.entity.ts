@@ -16,4 +16,7 @@ export class ViewProveedorByProducto{
     @ViewColumn()
     ValorCompra: number;
 
+    @ViewColumn()
+    ValorVenta: number;
+
 }

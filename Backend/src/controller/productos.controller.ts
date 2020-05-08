@@ -18,5 +18,8 @@ export class ProductoController{
 
         this.app.route("/producto/:id/proveedor").get(this.producto_service.getProveedorProducto);
 
+        this.app.route("/producto")
+        .post(this.producto_service.agregarNuevoProducto); 
+
     }
 }
