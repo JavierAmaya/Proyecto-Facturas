@@ -9,6 +9,9 @@ export class ProductoController{
     } 
 
     private routes(){
+        
+        this.app.route("producto/:id").get(this.producto_service.getOne);
         this.app.route("/productos").get(this.producto_service.getAll);
+
     }
 }

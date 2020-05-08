@@ -9,4 +9,9 @@ export class ProductoService{
         res.status(200).json(productos);
     }
 
+    public async getOne(req: Request, res:Response){
+        const producto: Producto[] = await getConnection().getRepository(Producto).find({ where: {IDProducto: req.params.id} });
+        res.status(200).json(producto[0]);
+    }
+
 }
