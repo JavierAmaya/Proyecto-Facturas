@@ -26,3 +26,18 @@ export class Producto{
     ValorVenta:number;
 
 }
+
+export interface IProducto{
+    IDProducto:number;
+    NameProducto:string;
+    Descripcion:string;
+    IDProveedor:number;
+    IDCategoria:number;
+    ValorCompra:number;
+    ValorVenta:number;
+}
+
+export interface IResultado{
+    Successed:boolean;
+    MSG: String;
+}
