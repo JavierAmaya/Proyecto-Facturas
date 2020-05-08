@@ -16,6 +16,9 @@ export class ProveedorController{
         this.app.route("/proveedor/:id")
         .get(this.proveedor_service.getOneProveedor);
 
+        this.app.route("/proveedor")
+        .post(this.proveedor_service.createProveedor);
+
     }
 
 }
