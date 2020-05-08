@@ -14,4 +14,8 @@ export class ProductoService{
         res.status(200).json(producto[0]);
     }
 
+    public async updateOne(req: Request, res:Response){
+        
+    }
+
 }
