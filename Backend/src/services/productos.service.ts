@@ -2,7 +2,7 @@ import {Request, Response} from "express";
 import {getConnection} from "typeorm";
 import {Producto,IProducto,IResultado} from "../entity/productos.entity";
 import {ViewProveedorByProducto} from "../entity/proveedorbyproduct.entity";
-import { ISupplier, IResult } from "../entity/supplier.entity";
+import {ViewCategoriaByProducto} from "../entity/categoriabyproducto.entity"
 
 export class ProductoService{
 
@@ -18,6 +18,11 @@ export class ProductoService{
 
     public async getProveedorProducto(req: Request, res:Response){
         const producto: ViewProveedorByProducto[] = await getConnection().getRepository(ViewProveedorByProducto).find({ where: {IDProducto: req.params.id} });
+        res.status(200).json(producto[0]);
+    }
+
+    public async getCategoriaProducto(req: Request, res:Response){
+        const producto: ViewCategoriaByProducto[] = await getConnection().getRepository(ViewCategoriaByProducto).find({ where: {IDProducto: req.params.id} });
         res.status(200).json(producto[0]);
     }
 
