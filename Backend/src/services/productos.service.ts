@@ -2,21 +2,6 @@ import {Request, Response} from "express";
 import {getConnection} from "typeorm";
 import {Producto,IProducto,IResultado} from "../entity/productos.entity";
 import {ViewProveedorByProducto} from "../entity/proveedorbyproduct.entity";
-<<<<<<< HEAD
-import {ViewOneSupplier_ListProduct} from "../entity/OneSupplier_ListProduct.entity"
-
-export class ProductoService{
-    public async getAllProductos(req: Request, res:Response){
-        const productos = await getConnection().getRepository(Producto).find();
-        res.status(200).json(productos);
-    }
-    
-    public async ListarProductosOneProveedor(req:Request, res: Response){
-        const provedor: ViewOneSupplier_ListProduct[] = await getConnection().getRepository(ViewOneSupplier_ListProduct).find({where: {IDProveedor: req.params.id}});
-        res.status(201).json(provedor);
-    }
-    public async getOneProducto(req: Request, res:Response){
-=======
 import {ViewCategoriaByProducto} from "../entity/categoriabyproducto.entity"
 
 export class ProductoService{
@@ -27,7 +12,6 @@ export class ProductoService{
     }
 
     public async getOne(req: Request, res:Response){
->>>>>>> RafaelBautista
         const producto: Producto[] = await getConnection().getRepository(Producto).find({ where: {IDProducto: req.params.id} });
         res.status(200).json(producto[0]);
     }
@@ -36,14 +20,6 @@ export class ProductoService{
         const producto: ViewProveedorByProducto[] = await getConnection().getRepository(ViewProveedorByProducto).find({ where: {IDProducto: req.params.id} });
         res.status(200).json(producto[0]);
     }
-<<<<<<< HEAD
-    public async eliminarProducto(req:Request, res: Response){
-        const result: IResultado[] = await getConnection().query(`EXEC pFacturas.SP_DELETE_PRODUCT
-        @IDProducto = ${req.params.id}`);
-        res.status(201).json(result[0]);
-    }
-    public async updateOneProducto(req: Request, res:Response){
-=======
 
     public async getCategoriaProducto(req: Request, res:Response){
         const producto: ViewCategoriaByProducto[] = await getConnection().getRepository(ViewCategoriaByProducto).find({ where: {IDProducto: req.params.id} });
@@ -51,7 +27,6 @@ export class ProductoService{
     }
 
     public async updateOne(req: Request, res:Response){
->>>>>>> RafaelBautista
         try{
 
             await getConnection().createQueryBuilder().update(Producto)
@@ -92,13 +67,10 @@ export class ProductoService{
         res.status(201).json(result[0]);
     }
 
-<<<<<<< HEAD
-=======
     public async eliminarProducto(req:Request, res: Response){
         const result: IResultado[] = await getConnection().query(`EXEC pFacturas.SP_DELETE_PRODUCT
         @IDProducto = ${req.params.id}`);
         res.status(201).json(result[0]);
     }
 
->>>>>>> RafaelBautista
 }
