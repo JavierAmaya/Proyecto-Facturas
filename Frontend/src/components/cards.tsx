@@ -28,7 +28,7 @@ const Card: React.FC<ICardProps> = ({title,description,question,label_main_btn,s
                       <button className="second-btn" onClick={reject}>No, gracias</button>
                     )}
                     <button className="profile-btn"  onClick={doit}>{label_main_btn}</button>
-                </div>                
+                </div>
             </div>
         </div>
     </section>  
