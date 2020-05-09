@@ -32,7 +32,8 @@ export class ProveedorService{
     }
     public async getOne(req:Request, res:Response){
         const proveedor:Proveedor[] = await getConnection().getRepository(Proveedor).find({where:{IDProveedor:req.params.id}});
-        res.status(200).json(proveedor[0]);
+        res.status(200).json(proveedor);
+        
     }
     public async updateOne(req:Request, res:Response){
         try {

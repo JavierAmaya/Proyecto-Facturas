@@ -14,15 +14,15 @@ import {MainController} from "./controller/main.controller";
 import {SupplierController} from "./controller/supplier.controller";
 import {ClienteController} from "./controller/Cliente.controller";
 import {ProveedorController} from "./controller/Proveedor.controller";
+import {ProductoController} from "./controller/productos.controller"
 
 class App{
-
     public app: Application;
     public main_controller: MainController;
     public supplier_controller: SupplierController;
     public Cliente_controler: ClienteController;
     public Proveedor_controller:ProveedorController;
-
+    public producto_controller:ProductoController;
     constructor(){  
         this.app = express();
         this.setConfig();
@@ -31,6 +31,7 @@ class App{
         this.supplier_controller = new SupplierController(this.app);
         this.Cliente_controler = new ClienteController(this.app);
         this.Proveedor_controller = new ProveedorController(this.app);
+        this.producto_controller = new ProductoController(this.app);
     }
 
     private setConfig(){

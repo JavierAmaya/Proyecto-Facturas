@@ -9,7 +9,6 @@ export class  ProveedorController{
     }
 
     private routes(){
-
         this.app.route("/Proveedor").post(this.Proveedor_Service.createOne);
         this.app.route("/Proveedores").get(this.Proveedor_Service.getAll);
         this.app.route("/Proveedor/:id")
