@@ -2,9 +2,13 @@ import {Application} from "express";
 import {ProductoService} from "../services/productos.service";
 
 export class ProductoController{
+<<<<<<< HEAD
     
     producto_service: ProductoService;
     
+=======
+    producto_service: ProductoService;
+>>>>>>> RafaelBautista
     constructor(private app: Application){
         this.producto_service = new ProductoService();
         this.routes();
@@ -13,6 +17,7 @@ export class ProductoController{
     private routes(){
         
         this.app.route("/producto/:id")
+<<<<<<< HEAD
         .get(this.producto_service.getOneProducto)
         .put(this.producto_service.updateOneProducto)
         .delete(this.producto_service.eliminarProducto);
@@ -27,6 +32,20 @@ export class ProductoController{
        
         this.app.route("/proveedor/lista/:id")
         .get(this.producto_service.ListarProductosOneProveedor);
+=======
+        .get(this.producto_service.getOne)
+        .put(this.producto_service.updateOne)
+        .delete(this.producto_service.eliminarProducto);
+        
+        this.app.route("/productos").get(this.producto_service.getAll);
+
+        this.app.route("/producto/:id/proveedor").get(this.producto_service.getProveedorProducto);
+
+        this.app.route("/producto/:id/categoria").get(this.producto_service.getCategoriaProducto);
+
+        this.app.route("/producto")
+        .post(this.producto_service.agregarNuevoProducto); 
+>>>>>>> RafaelBautista
 
     }
 }
