@@ -3,16 +3,6 @@ import {Entity,Column, PrimaryColumn} from "typeorm";
 @Entity({schema:"pFacturas", database:"ingreso_vehiculos",name:"Producto"})
 
 export class Producto{
-<<<<<<< HEAD
-    @PrimaryColumn() IDProducto:number;
-    @Column() NameProducto:string;
-    @Column() Descripcion:string;
-    @Column() IDProveedor:number;
-    @Column() IDCategoria:number;
-    @Column() ValorCompra:number;
-    @Column() ValorVenta:number;
-}
-=======
 
     @PrimaryColumn()
     IDProducto:number;
@@ -37,7 +27,6 @@ export class Producto{
 
 }
 
->>>>>>> RafaelBautista
 export interface IProducto{
     IDProducto:number;
     NameProducto:string;
