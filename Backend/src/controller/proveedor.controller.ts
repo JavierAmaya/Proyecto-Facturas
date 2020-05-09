@@ -1,26 +1,19 @@
 import {Application} from "express";
-import {ProveedorService} from "../services/proveedor.service";
+import {ProveedorService} from "../services/Proveedor.service";
 
 export class  ProveedorController{
-    
-    proveedor_service:ProveedorService;
-    
+    Proveedor_Service:ProveedorService;
     constructor(private app: Application) {
-        this.proveedor_service = new ProveedorService();
+        this.Proveedor_Service = new ProveedorService();
         this.routes();
     }
 
     private routes(){
-        
-        this.app.route("/Proveedor")
-        .post(this.proveedor_service.createOneProveedor);
-        
-        this.app.route("/Proveedores")
-        .get(this.proveedor_service.getAllProveedores);
-        
+        this.app.route("/Proveedor").post(this.Proveedor_Service.createOne);
+        this.app.route("/Proveedores").get(this.Proveedor_Service.getAll);
         this.app.route("/Proveedor/:id")
-        .get(this.proveedor_service.getOneProveedor)
-        .put(this.proveedor_service.updateOneProveedor)
-        .delete(this.proveedor_service.deleteOneProveedor);
+        .get(this.Proveedor_Service.getOne)
+        .put(this.Proveedor_Service.updateOne)
+        .delete(this.Proveedor_Service.deleteOne);
     }
 }
