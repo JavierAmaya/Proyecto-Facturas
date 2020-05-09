@@ -1,6 +1,6 @@
 import {Request,Response} from "express";
 import {getConnection} from "typeorm";
-import {Cliente,ICliente,IResult} from "../entity/Cliente.entity";
+import {Cliente,ICliente,IResult} from "../entity/cliente.entity";
 
 export class ClienteService{
     public async getAll(req:Request,res:Response){

@@ -1,5 +1,5 @@
 import {Application} from "express";
-import {ClienteService} from "../services/Cliente.service";
+import {ClienteService} from "../services/cliente.service";
 
 export class  ClienteController{
     Cliente_Service:ClienteService;
