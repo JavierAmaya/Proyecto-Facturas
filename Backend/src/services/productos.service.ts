@@ -2,7 +2,8 @@ import {Request, Response} from "express";
 import {getConnection} from "typeorm";
 import {Producto,IProducto,IResultado} from "../entity/productos.entity";
 import {ViewProveedorByProducto} from "../entity/proveedorbyproduct.entity";
-import {ViewCategoriaByProducto} from "../entity/categoriabyproducto.entity"
+import {ViewCategoriaByProducto} from "../entity/categoriabyproducto.entity";
+import {ViewOneSupplier_ListProduct} from "../entity/OneSupplier_ListProduct.entity";
 
 export class ProductoService{
 
@@ -72,5 +73,15 @@ export class ProductoService{
         @IDProducto = ${req.params.id}`);
         res.status(201).json(result[0]);
     }
+
+    //Lacho
+
+    public async ListarProductosOneProveedor(req:Request, res: Response){
+        const provedor: ViewOneSupplier_ListProduct[] = await getConnection().getRepository(ViewOneSupplier_ListProduct).find({where: {IDProveedor: req.params.id}});
+        res.status(201).json(provedor);
+    }
+
+
+
 
 }
