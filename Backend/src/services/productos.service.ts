@@ -5,7 +5,7 @@ import {ViewProveedorByProducto} from "../entity/proveedorbyproduct.entity";
 import {ViewOneSupplier_ListProduct} from "../entity/OneSupplier_ListProduct.entity"
 
 export class ProductoService{
-    public async getAll(req: Request, res:Response){
+    public async getAllProductos(req: Request, res:Response){
         const productos = await getConnection().getRepository(Producto).find();
         res.status(200).json(productos);
     }
@@ -14,7 +14,7 @@ export class ProductoService{
         const provedor: ViewOneSupplier_ListProduct[] = await getConnection().getRepository(ViewOneSupplier_ListProduct).find({where: {IDProveedor: req.params.id}});
         res.status(201).json(provedor);
     }
-    public async getOne(req: Request, res:Response){
+    public async getOneProducto(req: Request, res:Response){
         const producto: Producto[] = await getConnection().getRepository(Producto).find({ where: {IDProducto: req.params.id} });
         res.status(200).json(producto[0]);
     }
@@ -28,7 +28,7 @@ export class ProductoService{
         @IDProducto = ${req.params.id}`);
         res.status(201).json(result[0]);
     }
-    public async updateOne(req: Request, res:Response){
+    public async updateOneProducto(req: Request, res:Response){
         try{
 
             await getConnection().createQueryBuilder().update(Producto)

@@ -2,21 +2,23 @@ import {Application} from "express";
 import {ClienteService} from "../services/cliente.service";
 
 export class  ClienteController{
-    Cliente_Service:ClienteService;
+    
+    cliente_service:ClienteService;
+    
     constructor(private app: Application) {
-        this.Cliente_Service = new ClienteService();
+        this.cliente_service = new ClienteService();
         this.routes();
     }
 
     private routes(){
 
-        this.app.route("/Cliente").post(this.Cliente_Service.createOne);
+        this.app.route("/cliente").post(this.cliente_service.createOne);
 
-        this.app.route("/Clientes").get(this.Cliente_Service.getAll);
+        this.app.route("/clientes").get(this.cliente_service.getAll);
 
-        this.app.route("/Cliente/:id")
-        .get(this.Cliente_Service.getOne)
-        .put(this.Cliente_Service.updateOne)
-        .delete(this.Cliente_Service.deleteOne);
+        this.app.route("/cliente/:id")
+        .get(this.cliente_service.getOne)
+        .put(this.cliente_service.updateOne)
+        .delete(this.cliente_service.deleteOne);
     }
 }
