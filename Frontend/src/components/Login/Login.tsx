@@ -27,8 +27,8 @@ const NavbarLogin: React.FC = () =>(
                     <div className="col-4 offset-4">
                       <img src={Logo} alt="" className="card-img-top mt-3 img-fluid"/>
                     </div>
-                    <input type="email" name="" className="form-control mt-4" placeholder="Direccion de Correo Electronico" id="txt-correo"/>
-                    <input type="password" name="" className="form-control mt-2" placeholder="Contraseña" id="txt-contrasenia"/>
+                    <input type="email" name="" className="form-control mt-4" placeholder="Direccion de Correo Electronico" id="CorreoLogin"/>
+                    <input type="password" name="" className="form-control mt-2" placeholder="Contraseña" id="ContraseniaLogin"/>
                     <button className="btn btn-outline-primary btn-block mt-4" id="btn-inicio-sesion">Iniciar Sesion</button>
                     <div>
                       <small><a href="#">Do not you have an account yet</a></small>
