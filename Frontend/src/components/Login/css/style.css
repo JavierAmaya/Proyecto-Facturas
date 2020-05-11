@@ -1,0 +1,32 @@
+.anchor_navbar{
+    padding-right: 70%;
+}
+.items-navbar{
+    color: white;
+}
+
+.content-card{
+    text-align: center;
+}
+.item-menu{
+    width: 47%;
+}
+
+.btn-cards{
+    margin-top: 20px;
+
+}
+.my_car{
+    background-color: #00000094;
+    color: white;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.car2{
+    background-color: #00000094;
+    color: white;
+}
+#navbarLogin{
+    background-color: #110533;color: white
+}

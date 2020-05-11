@@ -54,12 +54,12 @@ export class SupplierService {
         @SupplierName = '${s.SupplierName}',
         @ContactName = '${s.ContactName}',
         @Address = '${s.Address}',
-        @City = '${s.City} ',
+        @City = '${s.City}',
         @PostalCode = '${s.PostalCode}',
         @Country = '${s.Country}',
         @Phone = '${s.Phone}'`);
 
-        res.status(201).json(result[0]) 
+        res.status(201).json(result[0]); 
     }
 
     public async deleteOne(req: Request , res:Response){

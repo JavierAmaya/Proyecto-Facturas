@@ -40,7 +40,7 @@ const Suppliers:React.FC = () =>{
                          title = {sup.SupplierName}
                          rtn = {sup.Phone}
                          direccion = {sup.Address}
-                         />
+                        />
                     ))}  
                </Row>
            </Container>
