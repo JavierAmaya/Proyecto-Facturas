@@ -57,8 +57,7 @@ export class ProductoService{
 
     public async agregarNuevoProducto(req:Request, res: Response){
         const s: IProducto = req.body;
-        const result: IResultado[] = await getConnection().query(`EXEC pFacturas.SP_ADD_PRODUCT
-        @IDProducto = ${s.IDProducto} ,
+        const result: IResultado[] = await getConnection().query(`EXEC pFacturas.SP_CREATE_PRODUCTO
         @NameProducto ='${s.NameProducto}',
         @Descripcion ='${s.Descripcion}',
         @IDProveedor = ${s.IDProveedor},

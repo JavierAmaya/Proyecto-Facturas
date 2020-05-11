@@ -28,7 +28,6 @@ export class Producto{
 }
 
 export interface IProducto{
-    IDProducto:number;
     NameProducto:string;
     Descripcion:string;
     IDProveedor:number;

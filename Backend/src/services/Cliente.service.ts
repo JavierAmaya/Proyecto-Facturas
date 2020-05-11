@@ -14,7 +14,9 @@ export class ClienteService{
         res.status(201).json(result[0]); 
     }
     public async createOne(req: Request , res:Response){
+       
         const c : ICliente = req.body;
+       
         const result: IResult[] = await getConnection().query(`
         EXEC pFacturas.SP_CREATE_CLIENTE
         @IDCliente = ${c.IDCliente},

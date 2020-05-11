@@ -24,7 +24,7 @@ export class ProductoController{
         this.app.route("/producto")
         .post(this.producto_service.agregarNuevoProducto); 
 
-        this.app.route("/proveedor/:id/lista").get(this.producto_service.ListarProductosOneProveedor);
+        this.app.route("/proveedor/:id/listaProductos").get(this.producto_service.ListarProductosOneProveedor);
 
     }
 }
