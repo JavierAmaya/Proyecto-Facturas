@@ -8,6 +8,7 @@ import './css/vendor/bootstrap/css/bootstrap.min.css';
 
 import Course from "./views/course";
 import Suppliers from "./views/suppliers"
+import Productos from './views/productos';
 
 const App:React.FC = () => (
   <BrowserRouter>
@@ -15,6 +16,7 @@ const App:React.FC = () => (
       <Route path="/course/:id" exact component ={Course} />
       <Route path="/suppliers" exact component ={Suppliers} />
       <Route path="/suppliers/:id" exact component ={Suppliers} />
+      <Route path="/productos" exact component ={Productos} />
     </Switch>
   </BrowserRouter>
 )
