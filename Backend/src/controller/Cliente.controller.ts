@@ -9,14 +9,12 @@ export class  ClienteController{
     }
 
     private routes(){
-
         this.app.route("/Cliente").post(this.Cliente_Service.createOne);
-
         this.app.route("/Clientes").get(this.Cliente_Service.getAll);
-
         this.app.route("/Cliente/:id")
         .get(this.Cliente_Service.getOne)
         .put(this.Cliente_Service.updateOne)
         .delete(this.Cliente_Service.deleteOne);
+        this.app.route("/Cliente/:id/Facturas").get(this.Cliente_Service.OneClienteManyInvoice);
     }
 }

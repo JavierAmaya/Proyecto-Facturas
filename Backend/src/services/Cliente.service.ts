@@ -3,6 +3,13 @@ import {getConnection} from "typeorm";
 import {Cliente,ICliente,IResult} from "../entity/Cliente.entity";
 
 export class ClienteService{
+    public async OneClienteManyInvoice(req:Request, res: Response){
+        const facturas: IResult[] = await getConnection().query(`
+        EXEC pFacturas.SP_One_Customer_Many_Invoices
+        @IDCliente = ${req.params.id}
+        `)
+        res.status(201).json(facturas);
+    }
     public async getAll(req:Request,res:Response){
         const Clientes = await getConnection().getRepository(Cliente).find();
         res.status(200).json(Clientes);  

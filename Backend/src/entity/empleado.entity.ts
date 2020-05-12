@@ -28,4 +28,6 @@ export interface IEmpleado{
 export interface IResult{
     Successed:boolean;
     MSG: String;
+    TipoUsuario:string;
+    NombreUsuario:string;
 }

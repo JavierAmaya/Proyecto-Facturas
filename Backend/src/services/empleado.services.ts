@@ -8,9 +8,8 @@ export class EmpleadoService{
         const P : IEmpleado = req.body;
         const result: IResult[] = await getConnection().query(`
         EXEC pFacturas.SP_VALIDE_EMPLOYEE
-        @EmailEmpleado = ${P.EmailEmpleado},
-        @UsuarioAsignado = ${P.UsuarioAsignado},
-        @Password = ${P.Password}`);
-        res.status(215).json(result[0]); 
+        @EmailEmpleado = '${P.EmailEmpleado}',
+        @Password = '${P.Password}'`);
+        res.status(201).json(result[0]); 
     }
 }
