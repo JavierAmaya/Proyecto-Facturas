@@ -21,8 +21,6 @@ export class FacturaService{
 
             await getConnection().createQueryBuilder().update(Factura)
             .set({
-
-                IDFactura : req.body.IDFactura,
                 FechaCreacion : req.body.FechaCreacion,
                 FechaLimite : req.body.FechaLimite,
                 IDEmpleado : req.body.IDEmpleado,
@@ -41,6 +39,22 @@ export class FacturaService{
                 updated: false,
                 Message: Error.Message
             });
+        }
+
+        if (req.body.TipoFactura===2) {
+            console.log("Entro al primer if")
+            let r : IResult[] = await getConnection().query(`
+                EXEC pFacturas.SP_DELETE_FACTURACLIENTE
+                @IDFactura = ${req.params.id}
+            `);  
+        }else if (req.body.TipoFactura===1) {
+            console.log("entro al segundo if");
+            console.log(req.body.IDCliente);
+            let r : IResult[] = await getConnection().query(`
+                EXEC pFacturas.SP_CREATE_FACTURA_CLIENTE
+                @IDFactura = ${req.params.id},
+                @IDCliente = ${req.body.IDCliente}
+            `); 
         }
 
     }
@@ -75,10 +89,4 @@ export class FacturaService{
         
     }
 
-    public async eliminarFactura(req:Request, res:Response){
-        const result: IResultado [] = await getConnection().query(`EXEC pFacturas.SP_DELETE_FACTURA
-        @IDFactura = ${req.params.id}`);
-        res.status(201).json(result[0]);
-        
-    }
 }

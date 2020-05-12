@@ -76,7 +76,8 @@ export class ProductoService{
     //Lacho
 
     public async ListarProductosOneProveedor(req:Request, res: Response){
-        const provedor: ViewOneSupplier_ListProduct[] = await getConnection().getRepository(ViewOneSupplier_ListProduct).find({where: {IDProveedor: req.params.id}});
+        const provedor: ViewOneSupplier_ListProduct[] = await getConnection()
+        .getRepository(ViewOneSupplier_ListProduct).find({where: {IDProveedor: req.params.id}});
         res.status(201).json(provedor);
     }
 
