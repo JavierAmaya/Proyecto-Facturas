@@ -19,7 +19,6 @@ export class ClienteService{
        
         const result: IResult[] = await getConnection().query(`
         EXEC pFacturas.SP_CREATE_CLIENTE
-        @IDCliente = ${c.IDCliente},
         @NombreCliente = '${c.NombreCliente}',
         @ApellidoCliente = '${c.ApellidoCliente}',
         @RTN = '${c.RTN}',

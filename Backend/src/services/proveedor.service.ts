@@ -3,6 +3,7 @@ import {getConnection} from "typeorm";
 import {Proveedor,IProveedor,IResult} from "../entity/proveedor.entity";
 
 export class ProveedorService{
+    
     public async getAllProveedor(req:Request,res:Response){
         const proveedores = await getConnection().getRepository(Proveedor).find();
         res.status(200).json(proveedores);  
@@ -17,7 +18,6 @@ export class ProveedorService{
         const P : IProveedor = req.body;
         const result: IResult[] = await getConnection().query(`
         EXEC pFacturas.SP_CREATE_PROVEEDORES
-        @IDProveedor = ${P.IDProveedor},
         @NombreProveedor = '${P.NombreProveedor}',
         @NombreContacto = '${P.NombreContacto}',
         @RTN = '${P.RTN}',
