@@ -13,21 +13,22 @@ import CardDeck from 'react-bootstrap/CardDeck';
 
 
 const Menu: React.FC = () =>(
-    <Container>
-
-        <Row>
-            <CardDeck>
-                <CardMenu title="Inventario" image={ImageInventario}></CardMenu>
-                <CardMenu title="Contabilidad" image={ImageContabilidad}></CardMenu>
-                <CardMenu title="POS" image={ImagePOS}></CardMenu>
-            </CardDeck>
-            <CardDeck>
-                <CardMenu title="Clientes" image={ImageClientes}></CardMenu>
-                <CardMenu title="Proveedores" image={ImageProveedores}></CardMenu>
-                <CardMenu title="Settings" image={ImageSettings}></CardMenu>
-            </CardDeck>
-        </Row>
-    </Container>
+    <div className="menu">
+     <Container>
+          <Row>
+              <CardDeck>
+                  <CardMenu title="Inventario" image={ImageInventario} btn_go="/inventario"></CardMenu>
+                  <CardMenu title="Contabilidad" image={ImageContabilidad} btn_go="/contabilidad"></CardMenu>
+                  <CardMenu title="POS" image={ImagePOS} btn_go="/pos"></CardMenu>
+              </CardDeck>
+              <CardDeck>
+                  <CardMenu title="Clientes" image={ImageClientes} btn_go="/clientes"></CardMenu>
+                  <CardMenu title="Proveedores" image={ImageProveedores} btn_go="/suppliers"></CardMenu>
+                  <CardMenu title="Settings" image={ImageSettings} btn_go="/settings"></CardMenu>
+              </CardDeck>
+          </Row>
+      </Container>
+    </div>
 );
 
 export default Menu;
