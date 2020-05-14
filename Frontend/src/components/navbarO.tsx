@@ -6,10 +6,10 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
-import logo from "../img/ferreteria logo.jpg";
+import logo from "../img/logo-blanco.png";
 
 
-const Header2: React.FC = () => (
+const NavBarO: React.FC = () => (
     <Navbar className="navbar" variant="dark" expand="lg">
         <Navbar.Brand href="#home">
               <img alt="" src={logo} width="30" height="30" className="d-inline-block align-top"/>{' '}
@@ -36,4 +36,4 @@ const Header2: React.FC = () => (
    </Navbar>
 );
 
-export default Header2;
+export default NavBarO;

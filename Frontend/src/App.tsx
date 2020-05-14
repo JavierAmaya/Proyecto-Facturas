@@ -9,6 +9,7 @@ import './css/vendor/bootstrap/css/bootstrap.min.css';
 import Course from "./views/course";
 import Suppliers from "./views/suppliers";
 import Login from "./views/Login";
+import Main from "./views/main";
 
 const App:React.FC = () => (
   <BrowserRouter>
@@ -16,7 +17,9 @@ const App:React.FC = () => (
       <Route path="/courses/:id" exact component ={Course} />
       <Route path="/suppliers" exact component ={Suppliers} />
       <Route path="/suppliers/:id" exact component ={Suppliers}/>
-      <Route path="/Login" exact component = {Login}/> 
+      <Route path="/login" exact component = {Login}/> 
+      <Route path="/main" exact component = {Main}/> 
+
     </Switch>
   </BrowserRouter>
 )

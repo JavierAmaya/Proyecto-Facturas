@@ -118,8 +118,9 @@ header{
   color: black;
 }
 
-.content-card{
-  text-align: center;
+.img-menu{
+  vertical-align: middle;
+  border-style: none;
 }
 .item-menu{
   width: 47%;
@@ -136,11 +137,6 @@ header{
   margin-bottom: 10%;
 }
 
-.car2{
-  background-color: #00000094;
-  color: white;
-}
-
 .navbar{
     background-color: #110533!important;
     color: white;
@@ -151,3 +147,13 @@ header{
     padding-top: 10px;
 }
 
+.item-menu{
+  width: 47%;
+}
+
+.card-menu{
+  background-color: #00000094!important;
+  color: white;
+  margin-left: 20px;
+  margin-top: 20px;
+}
