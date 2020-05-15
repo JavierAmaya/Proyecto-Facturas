@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react";
 import {} from "react-router-dom";
 import {IDataSupplier} from "../interfaces/supplier";
-import Header2,{} from "../components/header2";
+import NavBarO,{} from "../components/navbarO";
 import {getSuppliers} from "../services/supplier"
 import Card2 from "../components/card2";
 import Container from 'react-bootstrap/Container';
@@ -32,7 +32,7 @@ const Suppliers:React.FC = () =>{
 
     return (
        <div className="backgroundImg">
-           <Header2/>
+           <NavBarO/>
            <Container>
                <Row>
                     {suppliers.map((sup: IDataSupplier, index)=>(

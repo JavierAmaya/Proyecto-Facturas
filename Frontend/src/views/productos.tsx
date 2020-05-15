@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from "react";
 import {} from "react-router-dom";
 import {IProductos} from "../interfaces/productos";
-import Header2,{} from "../components/header2";
+import NavBarO,{} from "../components/navbarO";
 import {getProductos} from "../services/productos"
 import Card3 from "../components/card3";
 import Container from 'react-bootstrap/Container';
@@ -29,7 +29,7 @@ const Productos:React.FC = () =>{
 
     return(
         <div className="backgroundImg">
-           <Header2/>
+           <NavBarO/>
            <Container>
                <Row>
                     {productos.map((sup: IProductos, index)=>(
@@ -37,7 +37,10 @@ const Productos:React.FC = () =>{
                          name = {sup.NameProducto}
                          id = {sup.IDProducto}
                          precio = {sup.ValorVenta}
+                         key = {sup.IDProducto}
+                         url = "producto"
                          />
+
                     ))}  
                </Row>
            </Container>
