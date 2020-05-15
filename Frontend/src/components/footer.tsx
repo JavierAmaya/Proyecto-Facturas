@@ -13,7 +13,7 @@ const Footer: React.FC = () =>(
                 <Col sm="12" md="6">
                     <h6 className="titleFooter">ABOUT</h6>
                     <p>
-                      Scanfcode.com CODE WANTS TO BE SIMPLE is an initiative to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem distinctio dicta assumenda, porro quia nostrum neque repellat tempora obcaecati voluptatum soluta doloremque, error quos dolor blanditiis quis placeat rem sapiente!
                     </p>
                 </Col>
                 <Col xs="6" md="3">
@@ -21,19 +21,11 @@ const Footer: React.FC = () =>(
                     <ul className="footer-links">
                         <li>Item #</li>
                         <li>Item #</li>
-                        <li>Item #</li>
-                        <li>Item #</li>
-                        <li>Item #</li>
-                        <li>Item #</li>
                     </ul>
                 </Col>
                 <Col xs="6" md="3">
                     <h6 className="titleFooter">QUICK LINKS</h6>
                     <ul className="footer-links">
-                        <li>Item #</li>
-                        <li>Item #</li>
-                        <li>Item #</li>
-                        <li>Item #</li>
                         <li>Item #</li>
                         <li>Item #</li>
                     </ul>

@@ -12,7 +12,7 @@ import cambiodeusuario from "../img/cambio-de-usuario2.png";
 
 const NavBarO: React.FC = () => (
     <Navbar className="navbar" variant="dark" expand="lg">
-        <Navbar.Brand href="Main">
+        <Navbar.Brand href="/main">
               <img alt="" src={logo} width="30" height="30" className="d-inline-block align-top"/>{' '}
             Ferreteria La Unión
         </Navbar.Brand>

@@ -7,6 +7,8 @@ import Card3 from "../components/card3";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import TabVertical from "../components/tabVertical";
+import Footer from "../components/footer"
 
 const Productos:React.FC = () =>{
 
@@ -30,17 +32,29 @@ const Productos:React.FC = () =>{
     return(
         <div className="backgroundImg">
            <NavBarO/>
-           <Container>
-               <Row>
-                    {productos.map((sup: IProductos, index)=>(
-                         <Card3
-                         name = {sup.NameProducto}
-                         id = {sup.IDProducto}
-                         precio = {sup.ValorVenta}
-                         />
-                    ))}  
-               </Row>
-           </Container>
+           <Row>
+                <Col className="backgroundTap" md="2">
+                    <TabVertical/> 
+                </Col>
+                <Col className="background" md="10">
+                     <Container>
+                         <Row>
+                             <Col>
+                                 <Row>
+                                    {productos.map((sup: IProductos, index)=>(
+                                        <Card3
+                                         name = {sup.NameProducto}
+                                         id = {sup.IDProducto}
+                                         precio = {sup.ValorVenta}
+                                        />
+                                    ))}    
+                                </Row> 
+                             </Col>
+                         </Row>
+                     </Container>
+                </Col>
+           </Row>
+           <Footer/>
        </div>
     )
 

@@ -308,3 +308,14 @@ header{
 }
 
 /* css footer*/
+
+.background{
+  background-color: rgba(240, 240, 240,0.815);
+}
+.backgroundTap{
+  background-color: #0a0027;
+}
+
+.itemTap{
+  color: white;
+}

@@ -14,7 +14,6 @@ interface ICardPropsProductos{
 }
 
 const Card3 : React.FC<ICardPropsProductos> = ({name,id,precio})=>(
-
     <Col className="padding-items" md="4">
         <Card>
             <Row>
