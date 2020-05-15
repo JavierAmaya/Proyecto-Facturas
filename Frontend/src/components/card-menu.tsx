@@ -15,7 +15,7 @@ const CardMenu : React.FC<IcardMenu> = ({image,title})=> (
     <div>
         <Container>
             <Row>
-            <Card style={{ width: '22rem' }} className="card-menu content-card">
+            <Card style={{width: '22rem'}} className="card-menu content-card">
               <Card.Body>
               <Card.Title><h4>{title}</h4></Card.Title>
               <Card.Img className="item-menu img-menu" variant="top" src={image} />
@@ -24,10 +24,8 @@ const CardMenu : React.FC<IcardMenu> = ({image,title})=> (
             </Card>
             </Row> 
             <Row>
-
             </Row>
         </Container>
-
     </div>
 );
 

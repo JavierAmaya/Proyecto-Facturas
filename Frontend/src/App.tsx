@@ -5,7 +5,7 @@ import './css/vendor/bootstrap/css/bootstrap.min.css';
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
+import Prueba from "./views/pruebacompanentes";
 import Course from "./views/course";
 import Suppliers from "./views/suppliers";
 import Login from "./views/Login";
@@ -19,7 +19,7 @@ const App:React.FC = () => (
       <Route path="/suppliers/:id" exact component ={Suppliers}/>
       <Route path="/login" exact component = {Login}/> 
       <Route path="/main" exact component = {Main}/> 
-
+      <Route path="/Prueba" exact component = {Prueba}/>
     </Switch>
   </BrowserRouter>
 )

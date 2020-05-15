@@ -157,3 +157,11 @@ header{
   margin-left: 20px;
   margin-top: 20px;
 }
+#ListInvoice{background-color: rgba(255, 255, 255, 0.625);}
+#height_Auto{padding: 0px;background-color: rgba(255, 255, 255, 0.425);}
+.TextConta{text-align: center !important;color: #110533;font-weight: 700;}
+#CardConta{padding-left: 0px;padding-right: 0px;}
+#CardContabilidad{flex-wrap: wrap;display: -webkit-box;}
+#tdCardConta{border-top: 1px solid transparent;}
+.table{margin-top: 10px;}
+#titleFrom{padding-bottom: 2px;}

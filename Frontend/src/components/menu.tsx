@@ -9,12 +9,8 @@ import ImageClientes from "../img/review.png"
 import ImageProveedores from "../img/truck.png"
 import ImageSettings from "../img/technical-support (2).png"
 import CardDeck from 'react-bootstrap/CardDeck';
-
-
-
 const Menu: React.FC = () =>(
     <Container>
-
         <Row>
             <CardDeck>
                 <CardMenu title="Inventario" image={ImageInventario}></CardMenu>
