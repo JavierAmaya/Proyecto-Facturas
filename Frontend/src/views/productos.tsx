@@ -1,8 +1,8 @@
 import React,{useState,useEffect} from "react";
 import {} from "react-router-dom";
 import {IProductos} from "../interfaces/productos";
-import Header2,{} from "../components/header2";
 import {getProductos} from "../services/productos"
+import NavBarO from "../components/navbarO"
 import Card3 from "../components/card3";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -29,7 +29,7 @@ const Productos:React.FC = () =>{
 
     return(
         <div className="backgroundImg">
-           <Header2/>
+           <NavBarO/>
            <Container>
                <Row>
                     {productos.map((sup: IProductos, index)=>(

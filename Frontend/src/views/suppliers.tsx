@@ -1,12 +1,12 @@
 import React,{useState,useEffect} from "react";
 import {} from "react-router-dom";
 import {IDataSupplier} from "../interfaces/supplier";
-import NavBarO,{} from "../components/navbarO";
 import {getSuppliers} from "../services/supplier"
 import Card2 from "../components/card2";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import NavBarO from "../components/navbarO"
 
 
 
