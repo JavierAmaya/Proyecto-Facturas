@@ -12,6 +12,11 @@ const ManyInvoice: React.FC = () =>(
             <FormControl type="text" placeholder="Search" id="SearchInvoice" className="col-6 "/>
             <Button className="col-2" variant="light" id="ButtonSearch">Search</Button>
         </Form>
+        <div className="mb-2">
+            <Button variant="primary" size="lg" id="CrearObjecto">
+            Agregar Factura
+            </Button>
+        </div>
         <Breadcrumb  id="BreadcrumbListInvoice" >
             <Breadcrumb.Item href="Contabilidad">Contabilidad</Breadcrumb.Item>
             <Breadcrumb.Item active href="Contabilidad/Facturas">

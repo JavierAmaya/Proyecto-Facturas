@@ -172,3 +172,5 @@ header{
 #FormInvoiceSearch{margin-top: 7px;}
 #ButtonSearch{background-color: #110533; border-color: #090331; color: white;}
 #ButtonSearch:hover{background-color: #E8EAEC; border-color: #090331; color: #110533;}
+#CrearObjecto:hover{background-color: #110533; border-color: #090331; color: white;}
+#CrearObjecto{background-color: #E8EAEC; border-color: #090331; color: #110533;}
