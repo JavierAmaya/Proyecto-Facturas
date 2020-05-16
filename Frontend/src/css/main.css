@@ -157,7 +157,7 @@ header{
   margin-left: 20px;
   margin-top: 20px;
 }
-#ListInvoice{background-color: rgba(255, 255, 255, 0.625);}
+#ListInvoice{background-color: rgba(255, 255, 255, 0.625);margin-left: auto;height: 874px;max-height: 150%;overflow: auto;}
 #height_Auto{padding: 0px;background-color: rgba(255, 255, 255, 0.425);}
 .TextConta{text-align: center !important;color: #110533;font-weight: 700;}
 #CardConta{padding-left: 0px;padding-right: 0px;}
@@ -165,3 +165,10 @@ header{
 #tdCardConta{border-top: 1px solid transparent;}
 .table{margin-top: 10px;}
 #titleFrom{padding-bottom: 2px;}
+#ButtonListInvoice{background-color: transparent;border-color: transparent; width: 100%;}
+#ButtonListInvoice:hover{background-color: #f8f9fa; border-color: #f8f9fa;}
+#BreadcrumbListInvoice{margin-top: 9px;}
+#SearchInvoice{margin-left: auto;}
+#FormInvoiceSearch{margin-top: 7px;}
+#ButtonSearch{background-color: #110533; border-color: #090331; color: white;}
+#ButtonSearch:hover{background-color: #E8EAEC; border-color: #090331; color: #110533;}
