@@ -9,11 +9,14 @@ import Col from 'react-bootstrap/Col';
 
 interface ICardPropsProductos{
     name:string
-    id:number
-    precio:number
+    id?:number
+    precio?:number
+    rtn?:string
+    direccion?:string
+
 }
 
-const Card3 : React.FC<ICardPropsProductos> = ({name,id,precio})=>(
+const Card3 : React.FC<ICardPropsProductos> = ({name,id,precio,rtn,direccion})=>(
     <Col className="padding-items" md="4">
         <Card>
             <Row>
@@ -22,7 +25,10 @@ const Card3 : React.FC<ICardPropsProductos> = ({name,id,precio})=>(
                 </Col>
                 <Col md="7">
                 <Card.Title>{name}</Card.Title>
-                    <small><p className="card-text"><strong>Codigo: </strong>{id}</p></small>
+
+                    <small><p className="card-text">
+                        
+                    </p></small>
                     <small><p className="card-text"><strong>Precio:</strong> L. {precio}.00</p></small>
                 </Col>
             </Row>
