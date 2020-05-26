@@ -12,7 +12,7 @@ import {createConnection, Connection} from "typeorm";
 
 import {MainController} from "./controller/main.controller";
 import {SupplierController} from "./controller/supplier.controller";
-import {ClienteController} from "./controller/cliente.controller";
+import {ClienteController} from "./controller/Cliente.controller";
 import {ProveedorController} from "./controller/proveedor.controller";
 import {ProductoController} from "./controller/productos.controller";
 import {FacturaController} from "./controller/facturas.controller";

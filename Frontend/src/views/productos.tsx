@@ -41,13 +41,16 @@ const Productos:React.FC = () =>{
                          <Row>
                              <Col>
                                  <Row>
-                                    {productos.map((sup: IProductos, index)=>(
-                                        <Card3
+                                     {productos.map((sup: IProductos, index)=>(
+                                         <Card3
                                          name = {sup.NameProducto}
                                          id = {sup.IDProducto}
                                          precio = {sup.ValorVenta}
-                                        />
-                                    ))}    
+                                         key = {sup.IDProducto}
+                                         url = "producto"
+                                         />
+                                    
+                                    ))} 
                                 </Row> 
                              </Col>
                          </Row>
