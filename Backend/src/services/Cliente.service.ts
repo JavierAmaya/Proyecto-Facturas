@@ -1,6 +1,7 @@
 import {Request,Response} from "express";
 import {getConnection} from "typeorm";
 import {Cliente,ICliente,IResult} from "../entity/Cliente.entity";
+import {ViewInformacionCliente} from "../entity/informacioncliente.entity";
 
 export class ClienteService{
     public async getAll(req:Request,res:Response){
@@ -33,6 +34,12 @@ export class ClienteService{
         const cliente:Cliente[] = await getConnection().getRepository(Cliente).find({where:{IDCliente:req.params.id}});
         res.status(200).json(cliente[0]);
     }
+
+    public async informacionOneCliente(req: Request, res:Response){
+        const cliente:ViewInformacionCliente[] = await getConnection().getRepository(ViewInformacionCliente).find({where:{IDCliente:req.params.id}});
+        res.status(200).json(cliente[0]);
+    }
+
     public async updateOne(req:Request, res:Response){
         try {
             await getConnection().createQueryBuilder().update(Cliente)
