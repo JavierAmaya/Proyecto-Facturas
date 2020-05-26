@@ -6,14 +6,15 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Table from 'react-bootstrap/Table';
+import {IdetalleProducto} from "../interfaces/detalleproducto";
 
 
-const CardInformacion: React.FC = () => (
+const CardInformacion: React.FC<IdetalleProducto> = ({NameProducto,NombreProveedor,NameCategoria,ValorVenta}) => (
     <Container className="padding-items align-items-center mt-4">
         <Card className="container">
             <Row>
                 <Col md="3" className="offset-1">
-                <Card.Title> <h3 className="text-center mt-4">Nombre Producto</h3></Card.Title>
+                <Card.Title> <h3 className="text-center mt-4">{NameProducto}</h3></Card.Title>
                     <Card.Img variant="top" src={proveedorImg} className="img-fluid mt-5" />
                 </Col>
                 <Col md="6" className="offset-1">
@@ -22,11 +23,11 @@ const CardInformacion: React.FC = () => (
                         <tbody>
                             <tr>
                                 <td className="pt-3"><Form.Label>Nombre del Producto:</Form.Label></td>
-                                <td><Form.Control type="text" placeholder="Nombre del Producto" /></td>
+                                <td><Form.Control type="text" placeholder={NameProducto} /></td>
                             </tr>
                             <tr>
                                 <td className="pt-3"><Form.Label>Proveedor:</Form.Label></td>
-                                <td><Form.Control type="text" placeholder="Proveedor" /></td>
+                                <td><Form.Control type="text" placeholder={NombreProveedor} /></td>
                             </tr>
                             <tr>
                                 <td><Form.Check type="checkbox" label="Impuesto"/></td>
@@ -43,8 +44,12 @@ const CardInformacion: React.FC = () => (
                                 </Form.Control></td>
                             </tr>
                             <tr>
-                                <td className="pt-3"><Form.Label>Presentacion:</Form.Label></td>
-                                <td><Form.Control type="text" placeholder="Presentacion" /></td>
+                                <td className="pt-3"><Form.Label>Categoria:</Form.Label></td>
+                                <td><Form.Control type="text" placeholder={NameCategoria} /></td>
+                            </tr>
+                            <tr>
+                                <td className="pt-3"><Form.Label>ValorVenta:</Form.Label></td>
+                                <td><Form.Control type="text" placeholder={`${ValorVenta}`} /></td>
                             </tr>
                             <tr>
                                 <td className="pt-3"><Form.Label>Tamaño:</Form.Label></td>

@@ -17,13 +17,13 @@ const Menu: React.FC = () =>(
      <Container>
           <Row>
               <CardDeck>
-                  <CardMenu title="Inventario" image={ImageInventario} btn_go="/inventario"></CardMenu>
+                  <CardMenu title="Inventario" image={ImageInventario} btn_go="/inventario/productos"></CardMenu>
                   <CardMenu title="Contabilidad" image={ImageContabilidad} btn_go="/contabilidad"></CardMenu>
                   <CardMenu title="POS" image={ImagePOS} btn_go="/pos"></CardMenu>
               </CardDeck>
               <CardDeck>
                   <CardMenu title="Clientes" image={ImageClientes} btn_go="/clientes"></CardMenu>
-                  <CardMenu title="Proveedores" image={ImageProveedores} btn_go="/suppliers"></CardMenu>
+                  <CardMenu title="Proveedores" image={ImageProveedores} btn_go="/proveedores"></CardMenu>
                   <CardMenu title="Settings" image={ImageSettings} btn_go="/settings"></CardMenu>
               </CardDeck>
           </Row>

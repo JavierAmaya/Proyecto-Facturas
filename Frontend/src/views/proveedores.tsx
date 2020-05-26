@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from "react";
-import {getClientes} from "../services/clientes";
+import {getProveedores} from "../services/proveedores";
 import NavBarO from "../components/navbarO"
 import Card3 from "../components/card3";
 import Container from 'react-bootstrap/Container';
@@ -7,17 +7,18 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import TabVertical from "../components/tabVertical";
 import Footer from "../components/footer";
-import {ICliente} from "../interfaces/clientes"
+import {IProveedor} from "../interfaces/proveedor"
 
-const Cliente:React.FC = () => {
-    const [cliente, setCliente] = useState([]);
+
+const Proveedor:React.FC = () => {
+    const [proveedor, setProveedor] = useState([]);
     const [update, setUpdate] = useState(true);
 
     useEffect(()=>{
         if(update){
-            getClientes().then( r =>{                
+            getProveedores().then( r =>{                
                 setUpdate(false);
-                setCliente(r.data);
+                setProveedor(r.data);
             }); 
         }      
     },[update]);
@@ -39,11 +40,11 @@ const Cliente:React.FC = () => {
                         <Row>
                             <Col>
                                 <Row>
-                                    {cliente.map((sup: ICliente, index)=>(
+                                    {proveedor.map((sup: IProveedor, index)=>(
                                         <Card3
-                                        name = {sup.NombreCliente}
+                                        name = {sup.NombreProveedor}
                                         rtn = {sup.RTN}
-                                        direccion = {sup.Direccion1}
+                                        direccion = {sup.Direccion}
                                         />
                                     ))}    
                                 </Row> 
@@ -57,4 +58,4 @@ const Cliente:React.FC = () => {
     );
 }
 
-export default Cliente;
+export default Proveedor;

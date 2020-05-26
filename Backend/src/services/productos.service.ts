@@ -4,6 +4,7 @@ import {Producto,IProducto,IResultado} from "../entity/productos.entity";
 import {ViewProveedorByProducto} from "../entity/proveedorbyproduct.entity";
 import {ViewCategoriaByProducto} from "../entity/categoriabyproducto.entity";
 import {ViewOneSupplier_ListProduct} from "../entity/OneSupplier_ListProduct.entity";
+import {ViewDetalleProducto} from "../entity/detalleproducto.entity"
 
 export class ProductoService{
 
@@ -80,7 +81,14 @@ export class ProductoService{
         .getRepository(ViewOneSupplier_ListProduct).find({where: {IDProveedor: req.params.id}});
         res.status(201).json(provedor);
     }
-
+ 
+    public async detalleProducto( req: Request , res:Response){
+        const detalleProducto : ViewDetalleProducto [] = await getConnection()
+        .getRepository(ViewDetalleProducto).find({where: {IDProducto: req.params.id}})
+        console.log(req.params.id);
+        console.log(detalleProducto);
+        res.status(201).json(detalleProducto); 
+    }
 
 
 

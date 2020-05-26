@@ -17,7 +17,7 @@ export class ProveedorService{
     public async createOneProveedor(req: Request , res:Response){
         const P : IProveedor = req.body;
         const result: IResult[] = await getConnection().query(`
-        EXEC pFacturas.SP_CREATE_PROVEEDORES
+        EXEC pFacturas.SP_CREATE_PROVEEDOR
         @NombreProveedor = '${P.NombreProveedor}',
         @NombreContacto = '${P.NombreContacto}',
         @RTN = '${P.RTN}',

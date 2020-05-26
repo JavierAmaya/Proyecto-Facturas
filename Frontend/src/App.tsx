@@ -13,6 +13,8 @@ import Productos from './views/productos';
 import Login from "./views/Login";
 import Main from "./views/main";
 import DetalleInformacion from "./views/detalle";
+import Cliente from "./views/cliente";
+import Proveedor from "./views/proveedores";
 
 
 const App:React.FC = () => (
@@ -26,6 +28,8 @@ const App:React.FC = () => (
       <Route path="/main" exact component = {Main}/>
       <Route path="/inventario/productos" exact component = {Productos}/>
       <Route path="/inventario/producto/:id" exact component = {DetalleInformacion}/>  
+      <Route path="/clientes" exact component = {Cliente}/>  
+      <Route path="/proveedores" exact component = {Proveedor}/>  
     </Switch>
   </BrowserRouter>
 )
