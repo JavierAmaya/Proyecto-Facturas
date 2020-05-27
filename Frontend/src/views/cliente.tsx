@@ -8,6 +8,7 @@ import Col from 'react-bootstrap/Col';
 import TabVertical from "../components/tabVertical";
 import Footer from "../components/footer";
 import {ICliente} from "../interfaces/clientes"
+import Button from "react-bootstrap/Button";
 
 const Cliente:React.FC = () => {
     const [cliente, setCliente] = useState([]);
@@ -49,6 +50,9 @@ const Cliente:React.FC = () => {
                                 </Row> 
                             </Col>
                         </Row>
+                        <Row className="mt-3 mb-3 ml-2">
+                            <Button variant="primary">Añadir Nuevo Cliente</Button>
+                         </Row>
                     </Container>
                 </Col>
             </Row>

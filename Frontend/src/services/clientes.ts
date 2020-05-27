@@ -9,3 +9,11 @@ export function getClientes(){
 export function updateProduct() {
     //return axios.put()
 }
+
+export function getInformacionClientes(id:string): Promise<any> {
+    return new Promise<any>(resolve=>{
+        axios.get(`${query}/cliente/${id}/informacion`)
+        .then(result => resolve(result))
+        .catch(error => resolve( {data: {successed:false}} ));
+    });
+}

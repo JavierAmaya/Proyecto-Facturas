@@ -60,7 +60,12 @@ const CardInformacion: React.FC<IdetalleProducto> = ({NameProducto,NombreProveed
                     </Table>
                 </Col>
             </Row>
+            <Card.Body className="align-self-start">
+                <Button variant="warning">Editar Producto</Button>
+                <Button variant="danger" className="ml-2">Eliminar Producto</Button>
+            </Card.Body>
         </Card>
+        
     </Container>
 );
 

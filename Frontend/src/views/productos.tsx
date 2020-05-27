@@ -9,6 +9,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import TabVertical from "../components/tabVertical";
 import Footer from "../components/footer"
+import Button from "react-bootstrap/Button";
 
 const Productos:React.FC = () =>{
 
@@ -53,6 +54,9 @@ const Productos:React.FC = () =>{
                                     ))} 
                                 </Row> 
                              </Col>
+                         </Row>
+                         <Row className="mt-3 mb-3 ml-2">
+                            <Button variant="primary">Añadir Nuevo Producto</Button>
                          </Row>
                      </Container>
                 </Col>

@@ -8,6 +8,7 @@ import Col from 'react-bootstrap/Col';
 import TabVertical from "../components/tabVertical";
 import Footer from "../components/footer";
 import {IProveedor} from "../interfaces/proveedor"
+import Button from "react-bootstrap/Button";
 
 
 const Proveedor:React.FC = () => {
@@ -50,6 +51,9 @@ const Proveedor:React.FC = () => {
                                 </Row> 
                             </Col>
                         </Row>
+                        <Row className="mt-3 mb-3 ml-2">
+                            <Button variant="primary">Añadir Nuevo Proveedor</Button>
+                         </Row>
                     </Container>
                 </Col>
             </Row>

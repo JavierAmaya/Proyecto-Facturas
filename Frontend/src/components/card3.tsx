@@ -35,8 +35,9 @@ const Card3 : React.FC<ICardPropsProductos> = ({name,id,precio,url,rtn,direccion
                     <Link to={`${url}/${id}`}><Button variant="link">Mas Informacion...</Button></Link>
                 </Col>
             </Row>
-        </Card>
+       </Card>
     </Col>
 );
+
 
 export default Card3;
