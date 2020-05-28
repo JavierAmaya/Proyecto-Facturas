@@ -114,9 +114,12 @@ const Productos:React.FC = () =>{
                 </Col>
                 <Col className="background" md="10">
                      <Container>
+                         <Row className="mt-3 mb-3 ml-2">
+                            <ModalProducto />
+                         </Row>
                          <Row>
                              <Col>
-                                 <Row>
+                                <Row className="mb-3">
                                      {productos.map((sup: IProductos, index)=>(
                                          <Card3
                                          name = {sup.NameProducto}
@@ -129,9 +132,6 @@ const Productos:React.FC = () =>{
                                     ))} 
                                 </Row> 
                              </Col>
-                         </Row>
-                         <Row className="mt-3 mb-3 ml-2">
-                            <ModalProducto />
                          </Row>
                      </Container>
                 </Col>

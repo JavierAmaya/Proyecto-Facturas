@@ -114,9 +114,14 @@ const Proveedor:React.FC = () => {
                 </Col>
                 <Col className="background" md="10">
                     <Container>
+                        
+                        <Row className="mt-3 mb-3 ml-2">
+                            <ModalProveedor />
+                         </Row>
+                         
                         <Row>
                             <Col>
-                                <Row>
+                                <Row className="mb-3">
                                     {proveedor.map((sup: IProveedor, index)=>(
                                         <Card3
                                         name = {sup.NombreProveedor}
@@ -127,9 +132,6 @@ const Proveedor:React.FC = () => {
                                 </Row> 
                             </Col>
                         </Row>
-                        <Row className="mt-3 mb-3 ml-2">
-                            <ModalProveedor />
-                         </Row>
                     </Container>
                 </Col>
             </Row>

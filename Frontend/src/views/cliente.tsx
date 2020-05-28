@@ -104,9 +104,12 @@ const Cliente:React.FC = () => {
                 </Col>
                 <Col className="background" md="10">
                     <Container>
+                        <Row className="mt-3 mb-3 ml-2">
+                            <ModalCliente />
+                        </Row>
                         <Row>
                             <Col>
-                                <Row>
+                                <Row className="mb-3">
                                     {cliente.map((sup: ICliente, index)=>(
                                         <Card3
                                         name = {sup.NombreCliente}
@@ -117,9 +120,6 @@ const Cliente:React.FC = () => {
                                 </Row> 
                             </Col>
                         </Row>
-                        <Row className="mt-3 mb-3 ml-2">
-                        <ModalCliente />
-                         </Row>
                     </Container>
                 </Col>
             </Row>
