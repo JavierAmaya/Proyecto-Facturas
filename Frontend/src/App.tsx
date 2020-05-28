@@ -17,6 +17,7 @@ import informacionProveedor from "./views/informacionProveedor";
 import Cliente from "./views/cliente";
 import Proveedor from "./views/proveedores";
 import InformacionCliente from "./views/informacionCliente";
+import RegistrarFacturaCobrar from "./views/registrarFacCobrar";
 
 
 const App:React.FC = () => (
@@ -34,6 +35,7 @@ const App:React.FC = () => (
       <Route path="/cliente/:id" exact component = {InformacionCliente}/> 
       <Route path="/proveedores" exact component = {Proveedor}/>
       <Route path="/proveedor/:id" exact component = {informacionProveedor}/>
+      <Route path="/contabilidad/FacturasCobrar/Registrar" exact component = {RegistrarFacturaCobrar}/>
     </Switch>
   </BrowserRouter>
 )
