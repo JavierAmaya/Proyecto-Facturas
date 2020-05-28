@@ -10,6 +10,81 @@ import Col from 'react-bootstrap/Col';
 import TabVertical from "../components/tabVertical";
 import Footer from "../components/footer"
 import Button from "react-bootstrap/Button";
+import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
+
+function ModalProducto() {
+    const [show, setShow] = useState(false);
+  
+    return (
+      <>
+        <Button variant="primary" onClick={() => setShow(true)}>
+          Registrar Nuevo Producto
+        </Button>
+  
+        <Modal
+          show={show}
+          onHide={() => setShow(false)}
+          dialogClassName="modal-90w"
+          aria-labelledby="example-custom-modal-styling-title"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title>
+              Registrar Nuevo Producto
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form>
+                <Form.Group controlId="txt-nombre-producto">
+                    <Form.Label>Nombre del Producto:</Form.Label>
+                    <Form.Control type="text" placeholder="Nombre" className="required"/>
+                </Form.Group>
+                <Form.Group controlId="txt-descripcion-producto">
+                    <Form.Label>Descripcion:</Form.Label>
+                    <Form.Control type="text" placeholder="Apellido" className="required"/>
+                </Form.Group>
+                <Form.Group controlId="slc-proveedor-producto">
+                    <Form.Label>Proveedor:</Form.Label>
+                    <Form.Control as="select" custom>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group controlId="slc-categoria-producto">
+                    <Form.Label>Categoria:</Form.Label>
+                    <Form.Control as="select" custom>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group controlId="txt-valorcompra-producto">
+                    <Form.Label>Valor de Compra:</Form.Label>
+                    <Form.Control type="text" placeholder="Valor de Compra" />
+                </Form.Group>
+                <Form.Group controlId="txt-valorventa-producto">
+                    <Form.Label>Valor de Venta:</Form.Label>
+                    <Form.Control type="text" placeholder="Valor de Venta" />
+                </Form.Group>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="primary" onClick={() => alert("Este boton funciona")}>
+                Registrar
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    );
+  }
+
+
+
 
 const Productos:React.FC = () =>{
 
@@ -56,7 +131,7 @@ const Productos:React.FC = () =>{
                              </Col>
                          </Row>
                          <Row className="mt-3 mb-3 ml-2">
-                            <Button variant="primary">Añadir Nuevo Producto</Button>
+                            <ModalProducto />
                          </Row>
                      </Container>
                 </Col>

@@ -9,6 +9,81 @@ import TabVertical from "../components/tabVertical";
 import Footer from "../components/footer";
 import {IProveedor} from "../interfaces/proveedor"
 import Button from "react-bootstrap/Button";
+import Modal from 'react-bootstrap/Modal';
+import Form from 'react-bootstrap/Form';
+
+function ModalProveedor() {
+    const [show, setShow] = useState(false);
+  
+    return (
+      <>
+        <Button variant="primary" onClick={() => setShow(true)}>
+          Registrar Nuevo Proveedor
+        </Button>
+  
+        <Modal
+          show={show}
+          onHide={() => setShow(false)}
+          dialogClassName="modal-90w"
+          aria-labelledby="example-custom-modal-styling-title"
+        >
+          <Modal.Header closeButton>
+            <Modal.Title id="example-custom-modal-styling-title">
+              Registrar Nuevo Proveedor
+            </Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <Form>
+                <Form.Group controlId="txt-nombre-proveedor">
+                    <Form.Label>Nombre del Proveedor:</Form.Label>
+                    <Form.Control type="text" placeholder="Nombre del Proveedor" className="required"/>
+                </Form.Group>
+                <Form.Group controlId="txt-contacto-proveedor">
+                    <Form.Label>Nombre del Contacto:</Form.Label>
+                    <Form.Control type="text" placeholder="Nombre del Contacto" className="required"/>
+                </Form.Group>
+                <Form.Group controlId="txt-correo-proveedor">
+                    <Form.Label>Correo:</Form.Label>
+                    <Form.Control type="email" placeholder="Correo" className="required"/>
+                </Form.Group>
+                <Form.Group controlId="txt-RTN-proveedor">
+                    <Form.Label>RTN:</Form.Label>
+                    <Form.Control type="text" placeholder="RTN" />
+                </Form.Group>
+                <Form.Group controlId="txt-telefono-proveedor">
+                    <Form.Label>Telefono:</Form.Label>
+                    <Form.Control type="text" placeholder="Telefono" />
+                </Form.Group>
+                <Form.Group controlId="txt-pais-proveedor">
+                    <Form.Label>Pais:</Form.Label>
+                    <Form.Control type="text" placeholder="Pais" />
+                </Form.Group>
+                <Form.Group controlId="txt-ciudad-proveedor">
+                    <Form.Label>Ciudad:</Form.Label>
+                    <Form.Control type="text" placeholder="Ciudad" />
+                </Form.Group>
+                <Form.Group controlId="txt-codpostal-proveedor">
+                    <Form.Label>Codigo Postal:</Form.Label>
+                    <Form.Control type="text" placeholder="Codigo Postal" />
+                </Form.Group>
+                <Form.Group controlId="txt-direccion-proveedor">
+                    <Form.Label>Direccion</Form.Label>
+                    <Form.Control type="text" placeholder="Direccion" />
+                </Form.Group>
+            </Form>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="primary" onClick={() => alert("Este boton funciona")}>
+                Registrar
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </>
+    );
+  }
+
+  
+
 
 
 const Proveedor:React.FC = () => {
@@ -28,6 +103,7 @@ const Proveedor:React.FC = () => {
           console.log("cleaned up");
         };
     }, []);
+    
 
     return(
         <div>
@@ -52,7 +128,7 @@ const Proveedor:React.FC = () => {
                             </Col>
                         </Row>
                         <Row className="mt-3 mb-3 ml-2">
-                            <Button variant="primary">Añadir Nuevo Proveedor</Button>
+                            <ModalProveedor />
                          </Row>
                     </Container>
                 </Col>
@@ -63,3 +139,4 @@ const Proveedor:React.FC = () => {
 }
 
 export default Proveedor;
+
