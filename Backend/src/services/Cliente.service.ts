@@ -37,7 +37,7 @@ export class ClienteService{
 
     public async informacionOneCliente(req: Request, res:Response){
         const cliente:ViewInformacionCliente[] = await getConnection().getRepository(ViewInformacionCliente).find({where:{IDCliente:req.params.id}});
-        res.status(200).json(cliente[0]);
+        res.status(200).json(cliente);
     }
 
     public async updateOne(req:Request, res:Response){
