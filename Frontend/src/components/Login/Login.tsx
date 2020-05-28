@@ -16,31 +16,6 @@ const NavbarLogin: React.FC = () =>(
           Ferreteria La Union
         </a>
     </Navbar>
-    <div className="container pt-5 mt-5 mb-5">
-      <div className="row" id="form-signin">
-        <div className="offset-lg-3 col-lg-6 ">
-          <form action="" className="card">
-            <div className="card">
-              <div className="row text-center">
-                <div className="col-10 offset-1">
-                  <div className="row mt-3 mb-5">
-                    <div className="col-4 offset-4">
-                      <img src={Logo} alt="" className="card-img-top mt-3 img-fluid"/>
-                    </div>
-                    <input type="email" name="" className="form-control mt-4" placeholder="Direccion de Correo Electronico" id="txt-correo"/>
-                    <input type="password" name="" className="form-control mt-2" placeholder="Contraseña" id="txt-contrasenia"/>
-                    <button className="btn btn-outline-primary btn-block mt-4" id="btn-inicio-sesion">Iniciar Sesion</button>
-                    <div>
-                      <small><a href="#">Do not you have an account yet</a></small>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
   </div>
     
 );

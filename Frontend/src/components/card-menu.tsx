@@ -2,16 +2,17 @@ import React from "react";
 import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import {Link} from "react-router-dom";
 import Button from 'react-bootstrap/Button'
 
 interface IcardMenu{
     image:any
     title:string
+    btn_go:string
 }
 
 
-const CardMenu : React.FC<IcardMenu> = ({image,title})=> (
+const CardMenu : React.FC<IcardMenu> = ({image,title,btn_go})=> (
     <div>
         <Container>
             <Row>
@@ -20,7 +21,7 @@ const CardMenu : React.FC<IcardMenu> = ({image,title})=> (
               <Card.Title><h4>{title}</h4></Card.Title>
               <Card.Img className="item-menu img-menu" variant="top" src={image} />
               </Card.Body>
-              <Button variant="primary">Go</Button>
+              <Link to={`${btn_go}`}><Button variant="primary">GO</Button></Link>
             </Card>
             </Row> 
             <Row>

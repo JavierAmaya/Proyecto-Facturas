@@ -9,8 +9,6 @@ const Main:React.FC =() =>{
         <div>
             <NavBarO/>
             <Menu/>
-
-
         </div>
     )
 

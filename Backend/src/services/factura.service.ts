@@ -2,7 +2,8 @@ import {Request, Response} from "express";
 import {getConnection, getConnectionOptions} from "typeorm";
 import {Factura, IFactura, IResultado} from "../entity/factura.entity";
 import { IResult } from "../entity/supplier.entity";
-import {DetalleFactura,IDetalleFactura} from "../entity/detalleFactura.entity"
+import {ViewFacturasPorCobrar} from "../entity/listInvoiceCollect";
+import {ViewFacturasPorPagar} from "../entity/listInvoicePay";
 
 export class FacturaService{
 
@@ -15,7 +16,14 @@ export class FacturaService{
         const factura: Factura[] = await getConnection().getRepository(Factura).find();
         res.status(200).json(factura[0]); 
     }
-
+    public async getFacturasPorCobrar( req:Request, res:Response){
+        const factura: ViewFacturasPorCobrar[] = await getConnection().getRepository(ViewFacturasPorCobrar).find();
+        res.status(200).json(factura); 
+    }
+    public async getFacturasPorPagar( req:Request, res:Response){
+        const factura: ViewFacturasPorPagar[] = await getConnection().getRepository(ViewFacturasPorPagar).find();
+        res.status(200).json(factura); 
+    }
     public async updateOneFactura(req:Request, res:Response){
         try{
 

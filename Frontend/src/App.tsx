@@ -10,6 +10,9 @@ import Course from "./views/course";
 import Suppliers from "./views/suppliers";
 import Login from "./views/Login";
 import Main from "./views/main";
+import ModContabilidad from "./views/contabilidad";
+import listado_FacturasPorCobrar from "./views/listado_FacturasPorCobrar";
+import listado_FacturasPorPagar from "./views/listado_FacturasPorPagar";
 
 const App:React.FC = () => (
   <BrowserRouter>
@@ -20,6 +23,9 @@ const App:React.FC = () => (
       <Route path="/login" exact component = {Login}/> 
       <Route path="/main" exact component = {Main}/> 
       <Route path="/Prueba" exact component = {Prueba}/>
+      <Route path="/Contabilidad" exact component = {ModContabilidad}/>
+      <Route path="/Contabilidad/FacturasCobrar" exact component = {listado_FacturasPorCobrar}/>
+      <Route path="/Contabilidad/FacturasPagar" exact component = {listado_FacturasPorPagar}/>
     </Switch>
   </BrowserRouter>
 )

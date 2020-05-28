@@ -174,3 +174,5 @@ header{
 #ButtonSearch:hover{background-color: #E8EAEC; border-color: #090331; color: #110533;}
 #CrearObjecto:hover{background-color: #110533; border-color: #090331; color: white;}
 #CrearObjecto{background-color: #E8EAEC; border-color: #090331; color: #110533;}
+#rowAllConta{width: 100%; height:-webkit-fill-available;}
+.backgroundTap{background-color: #0a0027;}

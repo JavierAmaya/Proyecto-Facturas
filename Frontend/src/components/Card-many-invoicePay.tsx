@@ -4,17 +4,18 @@ import Button from 'react-bootstrap/Button';
 import "../css/main.css";
 interface ImoduloConta{
     numero:Number
-    Cliente:string
+    Proveedor:string
     Factura:Number
     FechaEmitida:string
     FechaLimite:string
     Estado:string
     Monto:Number
+    Encargado:string
 }
-const Many_invoice : React.FC<ImoduloConta> = ({numero,Cliente,Factura,FechaEmitida,FechaLimite,Estado,Monto})=>(
+const Many_invoice : React.FC<ImoduloConta> = ({numero,Proveedor,Factura,FechaEmitida,FechaLimite,Estado,Monto,Encargado})=>(
     <tr>
         <td>{numero}</td>
-        <td><Button id="ButtonListInvoice" href="/Contabilidad/:id/Facturas/:id" variant="light" size="lg">{Cliente}</Button></td>
+<td><Button id="ButtonListInvoice" href="/Contabilidad/:id/Facturas/:id" variant="light" size="lg">{Proveedor} / {Encargado}</Button></td>
         <td><Button id="ButtonListInvoice" href="/Contabilidad/:id/Facturas/:id" variant="light" size="lg">{Factura}</Button></td>
         <td>{FechaEmitida}</td>
         <td>{FechaLimite}</td>

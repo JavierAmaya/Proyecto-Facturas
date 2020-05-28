@@ -16,7 +16,10 @@ export class FacturaController{
 
         this.app.route("/facturas")
         .get(this.factura_service.getAllFacturas);
-
+        this.app.route("/Contabilidad/FacturasCobrar")
+        .get(this.factura_service.getFacturasPorCobrar);
+        this.app.route("/Contabilidad/FacturasPagar")
+        .get(this.factura_service.getFacturasPorPagar);
         this.app.route("/factura")
         .post(this.factura_service.nuevaFactura);
 
