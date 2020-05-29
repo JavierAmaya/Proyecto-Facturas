@@ -11,9 +11,36 @@ import {IProveedor} from "../interfaces/proveedor"
 import Button from "react-bootstrap/Button";
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import useFormHelpers from "../helpers/useFormHelpers";
+import {addProveedor} from "../services/proveedores";
 
 function ModalProveedor() {
     const [show, setShow] = useState(false);
+    const states = useState({
+        NombreProveedor: "",
+        NombreContacto: "",
+        RTN: "",
+        EmailProveedor: "",
+        Telefono: "",
+        Pais: "",
+        City: "",
+        CodigoPostal: "",
+        Direccion: ""
+      });
+    
+      const{
+        values,
+        handleChange,
+        updateValues
+      } = useFormHelpers(states)
+      
+      function registrarCliente() {
+        addProveedor(values).then(value => {
+            alert("Proveedor añadido exitosamente!");
+            window.location.reload(false);
+        })
+      }
+
   
     return (
       <>
@@ -36,44 +63,107 @@ function ModalProveedor() {
             <Form>
                 <Form.Group controlId="txt-nombre-proveedor">
                     <Form.Label>Nombre del Proveedor:</Form.Label>
-                    <Form.Control type="text" placeholder="Nombre del Proveedor" className="required"/>
+                    <input 
+                        type="text"  
+                        className="form-control mt-4" 
+                        placeholder="Nombre" 
+                        id="txt-nombre" 
+                        name="NombreProveedor"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group controlId="txt-contacto-proveedor">
                     <Form.Label>Nombre del Contacto:</Form.Label>
-                    <Form.Control type="text" placeholder="Nombre del Contacto" className="required"/>
+                    <input 
+                        type="text"  
+                        className="form-control mt-4" 
+                        placeholder="Nombre del Contacto" 
+                        id="txt-nombre" 
+                        name="NombreContacto"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group controlId="txt-correo-proveedor">
                     <Form.Label>Correo:</Form.Label>
-                    <Form.Control type="email" placeholder="Correo" className="required"/>
+                    <input 
+                        type="text"  
+                        className="form-control mt-4" 
+                        placeholder="Correo" 
+                        id="txt-nombre" 
+                        name="RTN"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group controlId="txt-RTN-proveedor">
                     <Form.Label>RTN:</Form.Label>
-                    <Form.Control type="text" placeholder="RTN" />
+                    <input 
+                        type="text"  
+                        className="form-control mt-4" 
+                        placeholder="RTN" 
+                        id="txt-nombre" 
+                        name="EmailProveedor"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group controlId="txt-telefono-proveedor">
                     <Form.Label>Telefono:</Form.Label>
-                    <Form.Control type="text" placeholder="Telefono" />
+                    <input 
+                        type="text"  
+                        className="form-control mt-4" 
+                        placeholder="Telefono" 
+                        id="txt-nombre" 
+                        name="Telefono"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group controlId="txt-pais-proveedor">
                     <Form.Label>Pais:</Form.Label>
-                    <Form.Control type="text" placeholder="Pais" />
+                    <input 
+                        type="text"  
+                        className="form-control mt-4" 
+                        placeholder="Pais" 
+                        id="txt-nombre" 
+                        name="Pais"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group controlId="txt-ciudad-proveedor">
                     <Form.Label>Ciudad:</Form.Label>
-                    <Form.Control type="text" placeholder="Ciudad" />
+                    <input 
+                        type="text"  
+                        className="form-control mt-4" 
+                        placeholder="Ciudad" 
+                        id="txt-nombre" 
+                        name="City"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group controlId="txt-codpostal-proveedor">
                     <Form.Label>Codigo Postal:</Form.Label>
-                    <Form.Control type="text" placeholder="Codigo Postal" />
+                     <input 
+                        type="text"  
+                        className="form-control mt-4" 
+                        placeholder="Codigo Postal" 
+                        id="txt-nombre" 
+                        name="CodigoPostal"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group controlId="txt-direccion-proveedor">
                     <Form.Label>Direccion</Form.Label>
-                    <Form.Control type="text" placeholder="Direccion" />
+                    <input 
+                        type="text"  
+                        className="form-control mt-4" 
+                        placeholder="Direccion" 
+                        id="txt-nombre" 
+                        name="Direccion"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="primary" onClick={() => alert("Este boton funciona")}>
+            <Button variant="primary" onClick={registrarCliente}>
                 Registrar
             </Button>
           </Modal.Footer>

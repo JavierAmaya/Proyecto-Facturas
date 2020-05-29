@@ -14,6 +14,6 @@ export interface IClienteInformacion{
 
     Direccion2: string 
 
-    cantidadFacturas: string
+    cantidadFacturas?: string
 
 }

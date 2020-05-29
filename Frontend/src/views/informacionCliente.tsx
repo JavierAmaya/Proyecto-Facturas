@@ -19,6 +19,7 @@ const InformacionCliente : React.FC = () => {
                 setUpdate(false);
                 setDetalleCliente(r.data);
             }); 
+            
         }      
     },[update]);
     useEffect(() => {
@@ -30,7 +31,6 @@ const InformacionCliente : React.FC = () => {
      return(
         <div>
             <NavBarO/>
-        
             {detalleCliente.map((cli: IClienteInformacion , index)=>(
                 <CardInformacionCliente
                 NombreCliente = {cli.NombreCliente}
@@ -42,9 +42,8 @@ const InformacionCliente : React.FC = () => {
                 Direccion2 = {cli.Direccion2}
                 cantidadFacturas = {cli.cantidadFacturas}
                 />
-            ))}
-       
-    </div>
+            ))};
+       </div>
     );
 };
 

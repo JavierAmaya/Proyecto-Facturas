@@ -35,11 +35,6 @@ export class ClienteService{
         res.status(200).json(cliente[0]);
     }
 
-    public async informacionOneCliente(req: Request, res:Response){
-        const cliente:ViewInformacionCliente[] = await getConnection().getRepository(ViewInformacionCliente).find({where:{IDCliente:req.params.id}});
-        res.status(200).json(cliente);
-    }
-
     public async updateOne(req:Request, res:Response){
         try {
             await getConnection().createQueryBuilder().update(Cliente)
@@ -64,5 +59,11 @@ export class ClienteService{
                 Message: Error.Message
             }); 
         }
+    }
+
+    public async informacionOneCliente(req: Request, res:Response){
+        const cliente:ViewInformacionCliente[] = await getConnection().getRepository(ViewInformacionCliente).find({where:{IDCliente:req.params.id}});
+        res.status(200).json(cliente);
+        console.log(cliente[0])
     }
 }

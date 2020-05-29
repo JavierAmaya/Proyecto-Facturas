@@ -1,7 +1,11 @@
 import React,{useState,useEffect} from "react";
 import {} from "react-router-dom";
 import {IProductos} from "../interfaces/productos";
+import {IProveedor} from "../interfaces/proveedor";
+import {ICategorias} from "../interfaces/categorias";
 import {getProductos} from "../services/productos"
+import {getProveedores} from "../services/proveedores";
+import {getCategorias} from "../services/categoria";
 import NavBarO from "../components/navbarO"
 import Card3 from "../components/card3";
 import Container from 'react-bootstrap/Container';
@@ -12,9 +16,48 @@ import Footer from "../components/footer"
 import Button from "react-bootstrap/Button";
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import useFormHelpers from "../helpers/useFormHelpers";
+import {addProducto} from "../services/productos";
 
 function ModalProducto() {
     const [show, setShow] = useState(false);
+    const [proveedores,setProveedores] = useState([]);
+    const [categorias,setCategorias] = useState([]);
+    
+    const states = useState({
+        NameProducto: "",
+        Descripcion: "",
+        IDProveedor: "",
+        IDCategoria: "",
+        ValorCompra: "",
+        ValorVenta: ""
+    });
+  
+    const{
+      values,
+      handleChange,
+      updateValues
+    } = useFormHelpers(states)
+    
+    function registrarCliente() {
+      addProducto(values).then(value => {
+          console.log(values);
+          alert("Producto añadido exitosamente!");
+          window.location.reload(false);
+      })
+    }
+
+    useEffect(()=>{
+      getProveedores().then(c => {
+        setProveedores(c.data);
+      });
+    },[]);
+
+    useEffect(()=>{
+      getCategorias().then(c => {
+        setCategorias(c.data);
+      });
+    },[]);
   
     return (
       <>
@@ -37,44 +80,70 @@ function ModalProducto() {
             <Form>
                 <Form.Group controlId="txt-nombre-producto">
                     <Form.Label>Nombre del Producto:</Form.Label>
-                    <Form.Control type="text" placeholder="Nombre" className="required"/>
+                    <input 
+                        type="text"  
+                        className="form-control mt-4" 
+                        placeholder="Nombre" 
+                        id="txt-correo" 
+                        name="NameProducto"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group controlId="txt-descripcion-producto">
                     <Form.Label>Descripcion:</Form.Label>
-                    <Form.Control type="text" placeholder="Apellido" className="required"/>
+                    <input 
+                        type="text"  
+                        className="form-control mt-4" 
+                        placeholder="Descripcion" 
+                        id="txt-correo" 
+                        name="Descripcion"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group controlId="slc-proveedor-producto">
                     <Form.Label>Proveedor:</Form.Label>
-                    <Form.Control as="select" custom>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </Form.Control>
+                    <select className="form-control" name="IDProveedor" defaultValue={values.correo} 
+                        onChange={handleChange}>
+                      {proveedores.map( (proveedores:IProveedor) => (
+                        <option value={proveedores.IDProveedor} key={proveedores.IDProveedor} >{proveedores.NombreProveedor}</option>
+                      ) )}
+                    </select>
                 </Form.Group>
                 <Form.Group controlId="slc-categoria-producto">
                     <Form.Label>Categoria:</Form.Label>
-                    <Form.Control as="select" custom>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                    </Form.Control>
+                    <select className="form-control" name="IDCategoria" defaultValue={values.correo} 
+                        onChange={handleChange}>
+                      {categorias.map( (categorias:ICategorias) => (
+                          <option value={categorias.IDCategoria} key={categorias.IDCategoria} >{categorias.NameCategoria}</option>
+                        ) )}
+                    </select>
                 </Form.Group>
                 <Form.Group controlId="txt-valorcompra-producto">
                     <Form.Label>Valor de Compra:</Form.Label>
-                    <Form.Control type="text" placeholder="Valor de Compra" />
+                    <input 
+                        type="number"  
+                        className="form-control mt-4" 
+                        placeholder="Valor de Compra" 
+                        id="txt-correo" 
+                        name="ValorCompra"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group controlId="txt-valorventa-producto">
                     <Form.Label>Valor de Venta:</Form.Label>
-                    <Form.Control type="text" placeholder="Valor de Venta" />
+                    <input 
+                        type="number"  
+                        className="form-control mt-4" 
+                        placeholder="Valor de Venta" 
+                        id="txt-correo" 
+                        name="ValorVenta"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="primary" onClick={() => alert("Este boton funciona")}>
+            <Button variant="primary" onClick={registrarCliente}>
                 Registrar
             </Button>
           </Modal.Footer>

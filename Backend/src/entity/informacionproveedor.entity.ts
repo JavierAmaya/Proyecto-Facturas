@@ -37,13 +37,3 @@ export class ViewInformacionProveedor{
     CantidadProductos : number
     
 }
-
-
-
-
-
-
-
-
-
-

@@ -13,11 +13,12 @@ import Productos from './views/productos';
 import Login from "./views/Login";
 import Main from "./views/main";
 import DetalleInformacion from "./views/detalle";
-import informacionProveedor from "./views/informacionProveedor";
+import InformacionProveedor from "./views/informacionProveedor";
 import Cliente from "./views/cliente";
 import Proveedor from "./views/proveedores";
-import InformacionCliente from "./views/informacionCliente";
-import RegistrarFacturaCobrar from "./views/registrarFacCobrar";
+import informacionCliente from "./views/informacionCliente";
+import NavbarLogin from "./components/Login/Login";
+import Factura from "./views/factura";
 
 
 const App:React.FC = () => (
@@ -27,15 +28,16 @@ const App:React.FC = () => (
       <Route path="/suppliers" exact component ={Suppliers} />
       <Route path="/suppliers/:id" exact component ={Suppliers} />
       <Route path="/productos" exact component ={Productos} />
-      <Route path="/login" exact component = {Login}/> 
+      <Route path="/login" exact component = {NavbarLogin}/> 
       <Route path="/main" exact component = {Main}/>
       <Route path="/inventario/productos" exact component = {Productos}/>
       <Route path="/inventario/producto/:id" exact component = {DetalleInformacion}/>  
-      <Route path="/clientes" exact component = {Cliente}/>
-      <Route path="/cliente/:id" exact component = {InformacionCliente}/> 
-      <Route path="/proveedores" exact component = {Proveedor}/>
-      <Route path="/proveedor/:id" exact component = {informacionProveedor}/>
-      <Route path="/contabilidad/FacturasCobrar/Registrar" exact component = {RegistrarFacturaCobrar}/>
+      <Route path="/clientes" exact component = {Cliente}/>  
+      <Route path="/proveedores" exact component = {Proveedor}/>  
+      <Route path="/cliente/:id" exact component = {informacionCliente}/>  
+      <Route path="/proveedor/:id" exact component = {InformacionProveedor}/>  
+      <Route path="/contabilidad/facturaNueva" exact component = {Factura}/>  
+
     </Switch>
   </BrowserRouter>
 )

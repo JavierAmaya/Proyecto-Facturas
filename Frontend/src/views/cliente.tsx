@@ -11,9 +11,33 @@ import {ICliente} from "../interfaces/clientes"
 import Button from "react-bootstrap/Button";
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
+import useFormHelpers from "../helpers/useFormHelpers";
+import {addCliente} from "../services/clientes";
 
 function ModalCliente() {
     const [show, setShow] = useState(false);
+    const states = useState({
+        NombreCliente:"",
+        ApellidoCliente:"",
+        RTN:"",
+        EmailCliente:"",
+        Telefono:"",
+        Direccion1:"",
+        Direccion2:""
+      });
+    
+      const{
+        values,
+        handleChange,
+        updateValues
+      } = useFormHelpers(states)
+      
+      function registrarCliente() {
+        addCliente(values).then(value => {
+            alert("Cliente añadido exitosamente!");
+            window.location.reload(false);
+        })
+      }
   
     return (
       <>
@@ -36,36 +60,85 @@ function ModalCliente() {
             <Form>
                 <Form.Group controlId="txt-nombre-cliente">
                     <Form.Label>Nombre del Cliente:</Form.Label>
-                    <Form.Control type="text" placeholder="Nombre" className="required"/>
+                    <input 
+                        type="text"  
+                        className="form-control mt-4" 
+                        placeholder="Nombre" 
+                        id="txt-nombre" 
+                        name="NombreCliente"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group controlId="txt-apellido-cliente">
                     <Form.Label>Apellido del Contacto:</Form.Label>
-                    <Form.Control type="text" placeholder="Apellido" className="required"/>
+                    <input 
+                        type="text"  
+                        className="form-control mt-4" 
+                        placeholder="Apellido" 
+                        id="txt-apellido" 
+                        name="ApellidoCliente"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group controlId="txt-RTN-cliente">
                     <Form.Label>RTN:</Form.Label>
-                    <Form.Control type="text" placeholder="RTN" />
+                    <input 
+                        type="number"  
+                        className="form-control mt-4" 
+                        placeholder="RTN" 
+                        id="txt-correo" 
+                        name="RTN"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group controlId="txt-correo-cliente">
-                    <Form.Label>Correo:</Form.Label>
-                    <Form.Control type="email" placeholder="Correo" className="required"/>
+                    <Form.Label>Correo Electronico:</Form.Label>
+                    <input 
+                        type="email"  
+                        className="form-control mt-4" 
+                        placeholder="Correo Electronico" 
+                        id="txt-correo" 
+                        name="EmailCliente"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group controlId="txt-telefono-cliente">
                     <Form.Label>Telefono:</Form.Label>
-                    <Form.Control type="text" placeholder="Telefono" />
+                    <input 
+                        type="email"  
+                        className="form-control mt-4" 
+                        placeholder="Teléfono" 
+                        id="txt-correo" 
+                        name="Telefono"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group controlId="txt-direccion1-cliente">
                     <Form.Label>Direccion 1:</Form.Label>
-                    <Form.Control type="text" placeholder="Direccion 1" />
+                    <input 
+                        type="email"  
+                        className="form-control mt-4" 
+                        placeholder="Direccion 1" 
+                        id="txt-correo" 
+                        name="Direccion1"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>
                 <Form.Group controlId="txt-direccion2-proveedor">
                     <Form.Label>Direccion 2:</Form.Label>
-                    <Form.Control type="text" placeholder="Direccion 2" />
+                    <input 
+                        type="email"  
+                        className="form-control mt-4" 
+                        placeholder="Direccion 2" 
+                        id="txt-correo" 
+                        name="Direccion2"
+                        defaultValue={values.correo} 
+                        onChange={handleChange}/>
                 </Form.Group>   
             </Form>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="primary" onClick={() => alert("Este boton funciona")}>
+            <Button variant="primary" onClick={registrarCliente}>
                 Registrar
             </Button>
           </Modal.Footer>

@@ -12,5 +12,12 @@ export function getInformacionProveedor(id:string): Promise<any> {
         .then(result => resolve(result))
         .catch(error => resolve( {data: {successed:false}} ));
     });
-}
+}    
 
+export function addProveedor(data:any): Promise<any>{
+    return new Promise<any>( resolve => {
+        axios.post(`${query}/proveedor`,data)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false}} ) );
+    });
+}

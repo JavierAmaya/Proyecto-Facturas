@@ -28,6 +28,6 @@ export class ViewInformacionCliente{
     Direccion2: string
     
     @ViewColumn()
-    cantidadFacturas : number
+    cantidadFacturas: number
     
 }

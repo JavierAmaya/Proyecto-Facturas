@@ -6,17 +6,17 @@ export function getProductos(){
     return axios.get(`${query}/productos`);
 }
 
-export function getDetalleProducto(id:string): Promise<any>{
-    return new Promise<any>(resolve=>{
-        axios.get(`${query}/producto/${id}/detalle`)
+export function postFactura(data:any): Promise<any>{
+    return new Promise<any>( resolve => {
+        axios.post(`${query}/producto`,data)
         .then(result => resolve(result) )
         .catch(error => resolve( {data: {successed:false}} ) );
     });
 }
 
-export function addProducto(data:any): Promise<any>{
+export function putFactura(id:string,data:any): Promise<any>{
     return new Promise<any>( resolve => {
-        axios.post(`${query}/producto`,data)
+        axios.put(`${query}/factura/${id}`,data)
         .then(result => resolve(result) )
         .catch(error => resolve( {data: {successed:false}} ) );
     });

@@ -1,4 +1,3 @@
-
 export interface IProveedorInformacion{
     IDProveedor ?: number
     NombreProveedor?:string
