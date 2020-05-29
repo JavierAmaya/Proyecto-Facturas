@@ -17,6 +17,7 @@ import {ProveedorController} from "./controller/proveedor.controller";
 import {ProductoController} from "./controller/productos.controller";
 import {FacturaController} from "./controller/facturas.controller";
 import {LoginController} from "./controller/login.controller";
+import {CategoriaController} from "./controller/categoria.controller";
 
 
 class App{
@@ -28,6 +29,7 @@ class App{
     public proveedor_controller :ProveedorController;
     public factura_controller: FacturaController;
     public login_controller : LoginController;
+    public categoria_controller : CategoriaController;
 
     constructor(){  
         this.app = express();
@@ -40,6 +42,7 @@ class App{
         this.proveedor_controller = new ProveedorController(this.app);
         this.factura_controller = new FacturaController(this.app);
         this.login_controller =  new LoginController(this.app);
+        this.categoria_controller = new CategoriaController(this.app);
     }
 
     private setConfig(){

@@ -22,14 +22,6 @@ const NavbarLogin: React.FC= () =>{
 
   const history = useHistory();
 
-  function hideModal(){
-    setShowmodal(false);
-  }
-
-  function showModal(){
-    setShowmodal(true);
-  }  
-
   const states = useState({
     correo:"" ,
     password: ""
@@ -56,9 +48,6 @@ const NavbarLogin: React.FC= () =>{
   return(
     
     <div>
-      <ModalLogin
-        show = {showmodal}
-      />
       <Navbar className="navbar navbar-dark" id="navbarLogin">
           <a className="navbar-brand anchor_navbar" href="Login">
             <img src={LogoNavbar} width="30" height="30" className="img-fluid" alt=""/>
@@ -93,7 +82,7 @@ const NavbarLogin: React.FC= () =>{
                         defaultValue={values.password} 
                         onChange={handleChange}
                       />
-                      <Button onClick={enviar}>Iniciar Sesion</Button>
+                      <Link className="btn  btn-block mt-4" to={"/main"}><Button onClick={enviar}>Iniciar Sesion</Button></Link>
                       <div>
                         <small><a href="#">Do not you have an account yet</a></small>
                       </div>

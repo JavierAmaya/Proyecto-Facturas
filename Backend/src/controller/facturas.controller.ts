@@ -23,6 +23,11 @@ export class FacturaController{
         this.app.route("/factura/:id")
         .put(this.factura_service.updateOneFactura);
 
+        this.app.route("/contabilidad/facturasCobrar")
+        .get(this.factura_service.getFacturasPorCobrar);
+        this.app.route("/contabilidad/facturasPagar")
+        .get(this.factura_service.getFacturasPorPagar);
+
         //Delete: Por efecto de contexto de negocio
         //Una Factura no puede ser eliminada, puede cambiar de estado
         //Si esta pendiente, o hecho , si esta hecho el pago solamente

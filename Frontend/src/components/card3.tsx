@@ -15,10 +15,14 @@ interface ICardPropsProductos{
     precio?:number
     url?:string
     rtn?: string
-    direccion? :string
+    propsProducto? : boolean
+    descripcion?:string
+    telefono?:string
+    nombreContacto?:string
+    pais?:string
 }
 
-const Card3 : React.FC<ICardPropsProductos> = ({name,id,precio,url,rtn,direccion})=>(
+const Card3 : React.FC<ICardPropsProductos> = ({name,id,precio,url,rtn, propsProducto, descripcion, telefono, nombreContacto, pais})=>(
     <Col className="padding-items" md="4">
         <Card>
             <Row>
@@ -27,11 +31,30 @@ const Card3 : React.FC<ICardPropsProductos> = ({name,id,precio,url,rtn,direccion
                 </Col>
                 <Col md="7">
                 <Card.Title>{name}</Card.Title>
+                    {(nombreContacto) && (pais) && (
+                        <Card.Text>
+                           <small><p className="card-text"><strong>nombreContacto:</strong>{nombreContacto}</p></small>
+                           <small><p className="card-text"><strong>pais:</strong>{pais}</p></small>
+                           <small><p className="card-text"><strong>telefono:</strong>{telefono}</p></small>
+                        </Card.Text>
+                    )} 
+                    
+                    {(telefono) && (rtn) && (
+                     <Card.Text>
+                        <small><p className="card-text"><strong>Telefono:</strong>{telefono}</p></small>
+                        <small><p className="card-text"><strong>RTN:</strong>{rtn}</p></small>
+                     </Card.Text>
+                    )} 
 
-                    <small><p className="card-text">
-                       (rtn) ? () : () 
-                    </p></small>
-                    <small><p className="card-text"><strong>Precio:</strong> L. {precio}.00</p></small>
+
+                    {(propsProducto) && (
+                        <small><p className="card-text"><strong>Precio:</strong> L. {precio}.00</p></small>
+                    )}
+                    {(descripcion) && (
+                        <small><p className="card-text"><strong>Descripcion:</strong>{descripcion}</p></small>
+                    )}
+
+
                     <Link to={`${url}/${id}`}><Button variant="link">Mas Informacion...</Button></Link>
                 </Col>
             </Row>

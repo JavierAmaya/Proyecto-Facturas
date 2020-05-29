@@ -13,3 +13,11 @@ export function getDetalleProducto(id:string): Promise<any>{
         .catch(error => resolve( {data: {successed:false}} ) );
     });
 }
+
+export function addProducto(data:any): Promise<any>{
+    return new Promise<any>( resolve => {
+        axios.post(`${query}/producto`,data)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false}} ) );
+    });
+}
