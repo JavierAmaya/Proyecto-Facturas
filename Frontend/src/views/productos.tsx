@@ -159,7 +159,7 @@ const Productos:React.FC = () =>{
 
     const [productos, setProductos] = useState([]);
     const [update, setUpdate] = useState(true);
-    const [propsProducto, setpropsProducto] = useState(false);
+    const [propsProducto, setpropsProducto] = useState(true);
 
 
     useEffect(()=>{
@@ -199,7 +199,7 @@ const Productos:React.FC = () =>{
                                          precio = {sup.ValorVenta}
                                          key = {sup.IDProducto}
                                          url = "producto"
-                                         propsProducto={propsProducto}
+                                         propsProducto = {propsProducto}
                                          descripcion={sup.Descripcion}
                                         />
                                     
