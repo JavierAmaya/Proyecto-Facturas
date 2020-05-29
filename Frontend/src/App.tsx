@@ -13,6 +13,8 @@ import Main from "./views/main";
 import ModContabilidad from "./views/contabilidad";
 import listado_FacturasPorCobrar from "./views/listado_FacturasPorCobrar";
 import listado_FacturasPorPagar from "./views/listado_FacturasPorPagar";
+import RegistrarFacturaCobrar from "./views/registrarFacCobrar";
+import RegistrarFacturaPagar from "./views/registrarFacPagar";
 
 const App:React.FC = () => (
   <BrowserRouter>
@@ -26,6 +28,8 @@ const App:React.FC = () => (
       <Route path="/Contabilidad" exact component = {ModContabilidad}/>
       <Route path="/Contabilidad/FacturasCobrar" exact component = {listado_FacturasPorCobrar}/>
       <Route path="/Contabilidad/FacturasPagar" exact component = {listado_FacturasPorPagar}/>
+      <Route path="/contabilidad/FacturasCobrar/Registrar" exact component = {RegistrarFacturaCobrar}/>
+      <Route path="/contabilidad/FacturasPagar/Registrar" exact component = {RegistrarFacturaPagar}/>
     </Switch>
   </BrowserRouter>
 )

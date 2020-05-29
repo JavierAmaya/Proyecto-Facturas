@@ -176,3 +176,7 @@ header{
 #CrearObjecto{background-color: #E8EAEC; border-color: #090331; color: #110533;}
 #rowAllConta{width: 100%; height:-webkit-fill-available;}
 .backgroundTap{background-color: #0a0027;}
+#TitleRegistrarFactura{font-size: xxx-large;}
+#SubtitleRegistrarFactura{font-size: xx-large;}
+#tareatextRegistrarFac{margin-bottom: 10px;}
+#margenesTotalFacRegis{margin-left: auto;}
