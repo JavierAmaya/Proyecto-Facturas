@@ -1,6 +1,8 @@
 import {Request,Response} from "express";
 import {getConnection} from "typeorm";
 import {Cliente,ICliente,IResult} from "../entity/Cliente.entity";
+import {ViewInformacionCliente} from "../entity/informacioncliente.entity";
+
 
 export class ClienteService{
     public async getAll(req:Request,res:Response){
@@ -57,5 +59,11 @@ export class ClienteService{
                 Message: Error.Message
             }); 
         }
+    }
+
+    public async informacionOneCliente(req: Request, res:Response){
+        const cliente:ViewInformacionCliente[] = await getConnection().getRepository(ViewInformacionCliente).find({where:{IDCliente:req.params.id}});
+        res.status(200).json(cliente);
+        console.log(cliente[0])
     }
 }

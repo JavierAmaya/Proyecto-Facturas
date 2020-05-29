@@ -20,5 +20,8 @@ export class  ProveedorController{
         .get(this.proveedor_service.getOneProveedor)
         .put(this.proveedor_service.updateOneProveedor)
         .delete(this.proveedor_service.deleteOneProveedor);
+
+        this.app.route("/proveedor/:id/informacion").get(this.proveedor_service.getInformacionOneProveedor);
+
     }
 }

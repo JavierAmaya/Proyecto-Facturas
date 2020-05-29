@@ -20,5 +20,7 @@ export class  ClienteController{
         .get(this.cliente_service.getOne)
         .put(this.cliente_service.updateOne)
         .delete(this.cliente_service.deleteOne);
+
+        this.app.route("/cliente/:id/informacion").get(this.cliente_service.informacionOneCliente);
     }
 }

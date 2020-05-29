@@ -1,6 +1,8 @@
 import {Request,Response} from "express";
 import {getConnection} from "typeorm";
 import {Proveedor,IProveedor,IResult} from "../entity/proveedor.entity";
+import { ViewInformacionProveedor } from "../entity/informacionproveedor.entity";
+
 
 export class ProveedorService{
     
@@ -62,5 +64,12 @@ export class ProveedorService{
                 Message: Error.Message
             }); 
         }
+
+        
+    }
+
+    public async getInformacionOneProveedor(req:Request,res:Response){
+        const proveedor:ViewInformacionProveedor[] = await getConnection().getRepository(ViewInformacionProveedor).find({where:{IDProveedor:req.params.id}});
+        res.status(200).json(proveedor);
     }
 }
