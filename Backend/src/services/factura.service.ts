@@ -3,7 +3,8 @@ import {getConnection, getConnectionOptions} from "typeorm";
 import {Factura, IFactura, IResultado} from "../entity/factura.entity";
 import { IResult } from "../entity/supplier.entity";
 import {DetalleFactura,IDetalleFactura} from "../entity/detalleFactura.entity"
-
+import {ViewFacturasPorCobrar} from "../entity/listInvoiceCollect";
+import {ViewFacturasPorPagar} from "../entity/listInvoicePay";
 export class FacturaService{
 
     public async getAllFacturas(req: Request, res:Response){
@@ -61,6 +62,8 @@ export class FacturaService{
 
     public async nuevaFactura(req:Request, res:Response){
         const f:IFactura = req.body;
+        console.log("esto esta llegando al endpoint")
+        console.log(req.body)
         
         const result : IResultado[] = await getConnection().query(`
             EXEC pFacturas.SP_CREATE_FACTURA
@@ -73,7 +76,6 @@ export class FacturaService{
         if (result[0].successed===1) {
             console.log("entro al if");
             for (const detalle in f.detalleFactura) {
-                
                 let r : IResultado[] = await getConnection().query(`
                     EXEC pFacturas.SP_CREATE_DETALLEFACTURA
                     @IDFactura = ${result[0].IDFactura},
@@ -87,6 +89,15 @@ export class FacturaService{
         res.status(201).json(result);
         
         
+    }
+
+    public async getFacturasPorCobrar( req:Request, res:Response){
+        const factura: ViewFacturasPorCobrar[] = await getConnection().getRepository(ViewFacturasPorCobrar).find();
+        res.status(200).json(factura); 
+    }
+    public async getFacturasPorPagar( req:Request, res:Response){
+        const factura: ViewFacturasPorPagar[] = await getConnection().getRepository(ViewFacturasPorPagar).find();
+        res.status(200).json(factura); 
     }
 
 }

@@ -27,7 +27,7 @@ const FactForm:React.FC = () => {
     /* MODAL */
     const [showmodal,setShowmodal] = useState(false);
     const [submitting,setSubmitting] = useState(false);
-    const [message,setMessage] = useState("Do you want to save?");
+    const [message,setMessage] = useState("Quieres guardar esta factura?");
     const [completed,setCompleted] = useState(false);
     
     /*clientes*/
@@ -60,26 +60,29 @@ const FactForm:React.FC = () => {
 
       if(!completed){
         setSubmitting(true);
-        setMessage("Sending...");
+        setMessage("Enviando...");
 
         if(id){
+          console.log("entro a id")
           putFactura(id,values).then(value=>{
             setCompleted(true);
             setSubmitting(false);
             if(value.data.successed){
-              setMessage("Language updated with success");          
+              setMessage("Factura Actualizada");          
             }else{
-              setMessage("Language name already exist");
+              setMessage("Esta Factura ya tiene asignado este cliente ");
             }
           })
         }else{
+          console.log("entro a POSt")
           postFactura(values).then(value=>{
+            console.log(value.data.FechaCreacion);
             setCompleted(true);
             setSubmitting(false);
             if(value.data.successed){
-              setMessage("Language stored with success");          
+              setMessage("Factura Guardada con Exito!");          
             }else{
-              setMessage("Language name already exist");
+              setMessage("Su Factura no ha sido Guardada :(");
             }
           })
         }
@@ -91,18 +94,16 @@ const FactForm:React.FC = () => {
       
     }
 
-    /*********************** */
-
     const {id} = useParams();
      
     const states = useState({
-        FechaCreacion:"",
-        FechaLimite:"",
-        IDEmpleado:"",
-        TipoFactura:"",
-        IDCliente:"",
-        IDProveedor:"",
-        detalleFactura:[]
+      FechaCreacion:"",
+      FechaLimite:"",
+      IDEmpleado:0,
+      TipoFactura:1,
+      IDCliente:"",
+      IDProveedor:"",
+      detalleFactura:[]
     });     
 
     const {
@@ -165,8 +166,8 @@ const FactForm:React.FC = () => {
                                 className="form-control" 
                                 id="exampleFormControlSelect1"
                                 onChange={handleChange}
-                                name="category"
-                                value={values.category}
+                                name="detalleFactura"
+                                value={values.detalleFactura}
                               >
                                 <option value="">choose an option</option>
                                 {productos.map( (productos:IProductos) => (
@@ -202,9 +203,6 @@ const FactForm:React.FC = () => {
                 <div className="align-items-center ml-5 mr-5 pl-5">
                     <Row className="align-items-center ml-5 mr-5 pl-5">
                         <Col md="5">
-                            <Form.Group controlId="slc-categoria-producto">
-                                <Form.Label> <strong>Factura #:</strong> ##############</Form.Label>
-                            </Form.Group>
                             <Form.Group>
                                 <Form.Label><strong>Dirección:</strong> La Unión, Olancho</Form.Label>
                             </Form.Group>
@@ -212,21 +210,37 @@ const FactForm:React.FC = () => {
                                 <Form.Label><strong>Teléfono:</strong> 9968-1203</Form.Label>
                             </Form.Group>
                             <Form.Group>
-                                <Form.Label><strong>Fecha de Emision:</strong> 9968-1203</Form.Label>
+                              <label htmlFor="form">Fecha Creacion</label>
+                              <input 
+                                type="date" 
+                                className="form-control" 
+                                id="fechaCreacion"
+                                name="FechaCreacion"
+                                onChange={handleChange}
+                                defaultValue={values.FechaCreacion}
+                              />
                             </Form.Group>
                             <Form.Group>
-                                <Form.Label><strong>CAI:</strong>123HJKB1NB12</Form.Label>
+                              <label htmlFor="formGroupExampleInput">Fecha Limite</label>
+                              <input 
+                                type="date" 
+                                className="form-control" 
+                                id="fechaLimite"
+                                name="FechaLimite"
+                                onChange={handleChange}
+                                defaultValue={values.FechaLimite}
+                              />
                             </Form.Group>
                         </Col>
                         <Col md="5">
                             <Form.Group>
-                              <label htmlFor="exampleFormControlSelect1">Clientes</label>
+                              <label htmlFor="Clientes">Clientes</label>
                               <select 
                                   className="form-control" 
-                                  id="exampleFormControlSelect1"
-                                  //onChange={handleChange}
-                                  name="clientes"
-                                  //value={values.category}
+                                  id="Clientes"
+                                  onChange={handleChange}
+                                  name="IDCliente"
+                                  value={values.name}
                               >
                                   <option value="">choose an option</option>
                                   {cliente.map((cl: ICliente, index)=>(
@@ -234,13 +248,14 @@ const FactForm:React.FC = () => {
                                   ))} 
                               </select>
                             </Form.Group>
+                            <br/>
+                            <br/>
                             <Form.Group>
-                                <Form.Label><strong>Dirección:</strong></Form.Label>
-                                <Form.Control type="text" placeholder="Direccion" className="required"/>
+                                <Form.Label><strong>Dirección:</strong>La Union Olancho</Form.Label>
                             </Form.Group>
+                            
                             <Form.Group>
-                                <Form.Label><strong>RTN:</strong></Form.Label>
-                                <Form.Control type="text" placeholder="RTN" className="required"/>
+                                <Form.Label><strong>RTN:</strong>1807-1968-009362</Form.Label>
                             </Form.Group>
                         </Col>
                     </Row>
@@ -282,7 +297,6 @@ const FactForm:React.FC = () => {
                                 <td>lps.167312</td>
                             </tr>
                         </tbody>
-                        
                     </Table>
                 </div>
                 <Row>

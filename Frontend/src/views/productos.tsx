@@ -2,7 +2,7 @@ import React,{useState,useEffect} from "react";
 import {} from "react-router-dom";
 import {IProductos} from "../interfaces/productos";
 import {IProveedor} from "../interfaces/proveedor";
-import {ICategorias} from "../interfaces/categorias";
+import {ICategorias} from "../interfaces/categoria";
 import {getProductos} from "../services/productos"
 import {getProveedores} from "../services/proveedores";
 import {getCategorias} from "../services/categoria";
@@ -159,11 +159,14 @@ const Productos:React.FC = () =>{
 
     const [productos, setProductos] = useState([]);
     const [update, setUpdate] = useState(true);
+    const [propsProducto, setpropsProducto] = useState(true);
+
 
     useEffect(()=>{
         if(update){
             getProductos().then( r =>{                
                 setUpdate(false);
+                setpropsProducto(true);
                 setProductos(r.data);
             }); 
         }      
@@ -188,15 +191,17 @@ const Productos:React.FC = () =>{
                          </Row>
                          <Row>
                              <Col>
-                                <Row className="mb-3">
-                                     {productos.map((sup: IProductos, index)=>(
-                                         <Card3
+                                <Row>
+                                    {productos.map((sup: IProductos, index)=>(
+                                        <Card3
                                          name = {sup.NameProducto}
                                          id = {sup.IDProducto}
                                          precio = {sup.ValorVenta}
                                          key = {sup.IDProducto}
                                          url = "producto"
-                                         />
+                                         propsProducto = {propsProducto}
+                                         descripcion={sup.Descripcion}
+                                        />
                                     
                                     ))} 
                                 </Row> 

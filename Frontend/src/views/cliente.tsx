@@ -183,11 +183,14 @@ const Cliente:React.FC = () => {
                         <Row>
                             <Col>
                                 <Row className="mb-3">
-                                    {cliente.map((sup: ICliente, index)=>(
+                                    {cliente.map((cl: ICliente, index)=>(
                                         <Card3
-                                        name = {sup.NombreCliente}
-                                        rtn = {sup.RTN}
-                                        direccion = {sup.Direccion1}
+                                         name = {cl.NombreCliente}
+                                         id = {cl.IDCliente}
+                                         key = {cl.IDCliente}
+                                         url = "cliente"
+                                         telefono={cl.Telefono}
+                                         rtn={cl.RTN}
                                         />
                                     ))}    
                                 </Row> 

@@ -22,7 +22,7 @@ const CardMenu : React.FC<IcardMenu> = ({image,title,btn_go})=> (
                   <Card.Title><h4>{title}</h4></Card.Title>
                   <Card.Img className="item-menu img-menu" variant="top" src={image} />
                   </Card.Body>
-                  <Link to={`${btn_go}`}><Button variant="primary">GO</Button></Link>
+                  <Link to={`${btn_go}`}><Button variant="primary">Ir</Button></Link>
 
                 </Card>
             </Row> 

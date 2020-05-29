@@ -13,7 +13,6 @@ export function getInformacionProveedor(id:string): Promise<any> {
         .catch(error => resolve( {data: {successed:false}} ));
     });
 }    
-
 export function addProveedor(data:any): Promise<any>{
     return new Promise<any>( resolve => {
         axios.post(`${query}/proveedor`,data)

@@ -211,12 +211,15 @@ const Proveedor:React.FC = () => {
                          
                         <Row>
                             <Col>
-                                <Row className="mb-3">
-                                    {proveedor.map((sup: IProveedor, index)=>(
+                                <Row>
+                                    {proveedor.map((pro: IProveedor, index)=>(
                                         <Card3
-                                        name = {sup.NombreProveedor}
-                                        rtn = {sup.RTN}
-                                        direccion = {sup.Direccion}
+                                            name = {pro.NombreProveedor}
+                                            nombreContacto = {pro.NombreContacto}
+                                            pais = {pro.Pais}
+                                            telefono={pro.Telefono}
+                                            url="proveedor"
+                                            id={pro.IDProveedor}
                                         />
                                     ))}    
                                 </Row> 

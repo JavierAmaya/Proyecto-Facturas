@@ -8,7 +8,7 @@ export function getProductos(){
 
 export function postFactura(data:any): Promise<any>{
     return new Promise<any>( resolve => {
-        axios.post(`${query}/producto`,data)
+        axios.post(`${query}/factura`,data)
         .then(result => resolve(result) )
         .catch(error => resolve( {data: {successed:false}} ) );
     });
@@ -20,4 +20,11 @@ export function putFactura(id:string,data:any): Promise<any>{
         .then(result => resolve(result) )
         .catch(error => resolve( {data: {successed:false}} ) );
     });
+}
+
+export function getFacturasCobrar(){
+    return axios.get(`${query}/Contabilidad/FacturasCobrar`);
+}
+export function getFacturasPagar(){
+    return axios.get(`${query}/Contabilidad/FacturasPagar`);
 }

@@ -19,7 +19,12 @@ import Proveedor from "./views/proveedores";
 import informacionCliente from "./views/informacionCliente";
 import NavbarLogin from "./components/Login/Login";
 import Factura from "./views/factura";
-
+import POS from "./views/pos";
+import Settings from "./views/setting";
+import ModContabilidad from "./views/contabilidad";
+import listado_FacturasPorCobrar from "./views/listado_FacturasPorCobrar";
+import listado_FacturasPorPagar from "./views/listado_FacturasPorPagar";
+import RegistrarFacturaPagar from "./views/registrarFacPagar";
 
 const App:React.FC = () => (
   <BrowserRouter>
@@ -36,7 +41,13 @@ const App:React.FC = () => (
       <Route path="/proveedores" exact component = {Proveedor}/>  
       <Route path="/cliente/:id" exact component = {informacionCliente}/>  
       <Route path="/proveedor/:id" exact component = {InformacionProveedor}/>  
-      <Route path="/contabilidad/facturaNueva" exact component = {Factura}/>  
+      <Route path="/contabilidad/facturaCobrar/registrar" exact component = {Factura}/>  
+      <Route path="/pos" exact component = {POS}/>  
+      <Route path="/settings" exact component = {Settings}/> 
+      <Route path="/contabilidad" exact component = {ModContabilidad}/>
+      <Route path="/contabilidad/facturasCobrar" exact component = {listado_FacturasPorCobrar}/>
+      <Route path="/contabilidad/facturasPagar" exact component = {listado_FacturasPorPagar}/>
+      <Route path="/contabilidad/facturasPagar/registrar" exact component = {RegistrarFacturaPagar}/> 
 
     </Switch>
   </BrowserRouter>

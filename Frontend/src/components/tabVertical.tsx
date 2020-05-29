@@ -11,22 +11,22 @@ const TabVertical:React.FC = () => (
             <Col>
             <Nav variant="pills" className="flex-column">
                 <Nav.Item>
-                <Nav.Link className="itemTap" eventKey="home">Home</Nav.Link>
+                <Nav.Link className="itemTap" eventKey="home" href="/main">Home</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                <Nav.Link className="itemTap" eventKey="inventario">Inventario</Nav.Link>
+                <Nav.Link className="itemTap" eventKey="inventario" href="/inventario">Inventario</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                <Nav.Link className="itemTap" eventKey="contabilidad">Contabilidad</Nav.Link>
+                <Nav.Link className="itemTap" eventKey="contabilidad" href="/contabilidad">Contabilidad</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                <Nav.Link className="itemTap" eventKey="pos">POS</Nav.Link>
+                <Nav.Link className="itemTap" eventKey="pos" href="/pos">POS</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                <Nav.Link className="itemTap" eventKey="clientes">Clientes</Nav.Link>
+                <Nav.Link className="itemTap" eventKey="clientes" href="/clientes">Clientes</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                <Nav.Link className="itemTap" eventKey="proveedores">Proveedores</Nav.Link>
+                <Nav.Link className="itemTap" eventKey="proveedores" href="/proveedores">Proveedores</Nav.Link>
                 </Nav.Item>
             </Nav>
             </Col>

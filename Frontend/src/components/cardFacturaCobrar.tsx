@@ -142,29 +142,29 @@ const CardRegistrarFactura: React.FC = () => (
                     </Table>
                 </div>
                 <Row>
-                            <Col className="col-sm-6"></Col>
-                            <Col className="col-sm-3 text-center">
-                                <ul className="list-unstyled">
-                                  <li>Importe Excento</li>
-                                  <li>Importe Gravado 15%</li>
-                                  <li>15% ISV</li>
-                                  <li>Total a pagar</li>
-                                </ul>
-                            </Col>
-                            <Col className="col-sm-2 text-center">
-                                <ul className="list-unstyled">
-                                  <li>L.123</li>
-                                  <li>L.1232</li>
-                                  <li>L. 1231</li>
-                                  <li>Lps.475465</li>
-                                </ul>
-                            </Col>
-                            <small>La Factura es beneficio de todos, "Exijala"</small>
+                    <Col className="col-sm-6"></Col>
+                    <Col className="col-sm-3 text-center">
+                        <ul className="list-unstyled">
+                          <li>Importe Excento</li>
+                          <li>Importe Gravado 15%</li>
+                          <li>15% ISV</li>
+                          <li>Total a pagar</li>
+                        </ul>
+                    </Col>
+                    <Col className="col-sm-2 text-center">
+                        <ul className="list-unstyled">
+                          <li>L.123</li>
+                          <li>L.1232</li>
+                          <li>L. 1231</li>
+                          <li>Lps.475465</li>
+                        </ul>
+                    </Col>
+                    <small>La Factura es beneficio de todos, "Exijala"</small>
                             
-                          </Row>
+                </Row>
             </Card.Body>
             <div className="modal-footer">
-                          <button type="button" className="btn btn-primary">Registrar Factura</button>
+                <button type="button" className="btn btn-primary">Registrar Factura</button>
             </div>
         </Card>
         
