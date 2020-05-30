@@ -23,10 +23,18 @@ export class FacturaController{
         this.app.route("/factura/:id")
         .put(this.factura_service.updateOneFactura);
 
-        this.app.route("/contabilidad/facturasCobrar")
-        .get(this.factura_service.getFacturasPorCobrar);
-        this.app.route("/contabilidad/facturasPagar")
-        .get(this.factura_service.getFacturasPorPagar);
+        this.app.route("/contabilidad/facturasPagar/:id")
+        .get(this.factura_service.facturaPagarDetalle);
+
+        this.app.route("/contabilidad/facturasPagarProducto/:id")
+        .get(this.factura_service.facturaPagarProducto);
+
+
+        this.app.route("/contabilidad/facturasPagar/:id")
+        .get(this.factura_service.facturaPagarDetalle);
+
+        this.app.route("/contabilidad/facturasPagarProducto/:id")
+        .get(this.factura_service.facturaPagarProducto);
 
         //Delete: Por efecto de contexto de negocio
         //Una Factura no puede ser eliminada, puede cambiar de estado

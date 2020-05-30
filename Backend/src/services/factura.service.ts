@@ -3,8 +3,8 @@ import {getConnection, getConnectionOptions} from "typeorm";
 import {Factura, IFactura, IResultado} from "../entity/factura.entity";
 import { IResult } from "../entity/supplier.entity";
 import {DetalleFactura,IDetalleFactura} from "../entity/detalleFactura.entity"
-import {ViewFacturasPorCobrar} from "../entity/listInvoiceCollect";
-import {ViewFacturasPorPagar} from "../entity/listInvoicePay";
+import {ViewFacturasPorPagarDetalle} from "../entity/FacturasPorPagarDetalle.entity";
+import {ViewFacturasPorPagarProductos} from "../entity/FacturasPorPagarProductos.entity";
 export class FacturaService{
 
     public async getAllFacturas(req: Request, res:Response){
@@ -88,13 +88,13 @@ export class FacturaService{
         }*/
     }
 
-    public async getFacturasPorCobrar( req:Request, res:Response){
-        const factura: ViewFacturasPorCobrar[] = await getConnection().getRepository(ViewFacturasPorCobrar).find();
-        res.status(200).json(factura); 
+    public async facturaPagarDetalle(req:Request, res:Response){
+        const result : ViewFacturasPorPagarDetalle[] = await getConnection().getRepository(ViewFacturasPorPagarDetalle).find({where:{IDFactura:req.params.id}});
+    res.status(201).json(result);
     }
-    public async getFacturasPorPagar( req:Request, res:Response){
-        const factura: ViewFacturasPorPagar[] = await getConnection().getRepository(ViewFacturasPorPagar).find();
-        res.status(200).json(factura); 
+    public async facturaPagarProducto(req:Request, res:Response){
+        const result : ViewFacturasPorPagarProductos[] = await getConnection().getRepository(ViewFacturasPorPagarProductos).find({where:{IDFactura:req.params.id}});
+    res.status(201).json(result);
     }
 
 }

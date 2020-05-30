@@ -2,6 +2,9 @@ import {Request,Response} from "express";
 import {getConnection} from "typeorm";
 import {Cliente,ICliente,IResult} from "../entity/Cliente.entity";
 import {ViewInformacionCliente} from "../entity/informacioncliente.entity";
+import {ViewFacturasPorPagarDetalle} from "../entity/FacturasPorPagarDetalle.entity";
+import {ViewFacturasPorPagarProductos} from "../entity/FacturasPorPagarProductos.entity";
+
 
 
 export class ClienteService{
@@ -65,5 +68,14 @@ export class ClienteService{
         const cliente:ViewInformacionCliente[] = await getConnection().getRepository(ViewInformacionCliente).find({where:{IDCliente:req.params.id}});
         res.status(200).json(cliente);
         console.log(cliente[0])
+    }
+
+    public async facturaPagarDetalle(req:Request, res:Response){
+        const result : ViewFacturasPorPagarDetalle[] = await getConnection().getRepository(ViewFacturasPorPagarDetalle).find({where:{IDFactura:req.params.id}});
+    res.status(201).json(result);
+    }
+    public async facturaPagarProducto(req:Request, res:Response){
+        const result : ViewFacturasPorPagarProductos[] = await getConnection().getRepository(ViewFacturasPorPagarProductos).find({where:{IDFactura:req.params.id}});
+    res.status(201).json(result);
     }
 }
