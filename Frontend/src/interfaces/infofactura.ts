@@ -1,11 +1,12 @@
-import {IdetalleProducto} from "../interfaces/detalleproducto"
+import {IDetalleFactura} from "../interfaces/detalleFactura"
 export interface IFactura{
     FechaCreacion?: string
     FechaLimite?: string
-    IDEmpleado?: string
+    IDEmpleado?: number
     TipoFactura?: number
     IDCliente? : number
-    detalleProducto : IdetalleProducto
+    IDProveedor?: number
+    detalleFactura : IDetalleFactura[]
 }
 
 

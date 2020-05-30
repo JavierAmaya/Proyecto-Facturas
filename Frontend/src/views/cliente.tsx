@@ -24,20 +24,21 @@ function ModalCliente() {
         Telefono:"",
         Direccion1:"",
         Direccion2:""
-      });
+    });
     
-      const{
+    const{
         values,
         handleChange,
         updateValues
-      } = useFormHelpers(states)
+    } = useFormHelpers(states)
       
-      function registrarCliente() {
-        addCliente(values).then(value => {
-            alert("Cliente añadido exitosamente!");
-            window.location.reload(false);
-        })
-      }
+    function registrarCliente() {
+        console.log(values);
+      addCliente(values).then(value => {
+          alert("Cliente añadido exitosamente!");
+          window.location.reload(false);
+      })
+    }
   
     return (
       <>

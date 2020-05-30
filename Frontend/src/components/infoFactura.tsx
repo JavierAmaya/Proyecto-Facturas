@@ -12,120 +12,146 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
-import {getClientes} from '../services/clientes'
-import {ICliente} from "../interfaces/clientes"
-
+import {getClientes} from '../services/clientes';
+import {ICliente} from "../interfaces/clientes";
+import {IFactura} from "../interfaces/infofactura"
+import {IDetalleFactura} from "../interfaces/detalleFactura"
 
 
 import useFormHelper from "../helpers/useFormHelpers";
 
 const FactForm:React.FC = () => {
+  const dtf: IDetalleFactura[] = [];
+  const f: IFactura = {
+    FechaCreacion:"",
+    FechaLimite:"",
+    IDEmpleado:1,
+    TipoFactura:0,
+    IDCliente:0,
+    IDProveedor:0,
+    detalleFactura: dtf
+  }
+  const [factura , setFactura]=useState(f);
 
-    const [productos,setProd] = useState([]);
-    const [cleanUp,setCleanUp] = useState(true);
+  function handleFactura(e:any) {
+    console.log(factura);
+    console.log(e.target.name);
+    if(e.target.name == "FechaCreacion" ){
+      factura.FechaCreacion = e.target.value;
+    }else if (e.target.name == "FechaLimite"){
+      factura.FechaLimite = e.target.value;
+    }else if (e.target.name == "IDCliente"){
+      factura.IDCliente = e.target.value;
+      factura.TipoFactura = 1;
+    }
+
+    setFactura(factura);
+    console.log(e.target.name);
+    console.log(factura);
+  }
+  
+  const [productos,setProd] = useState([]);
+  const [cleanUp,setCleanUp] = useState(true);
     
     /* MODAL */
-    const [showmodal,setShowmodal] = useState(false);
-    const [submitting,setSubmitting] = useState(false);
-    const [message,setMessage] = useState("Quieres guardar esta factura?");
-    const [completed,setCompleted] = useState(false);
+  const [showmodal,setShowmodal] = useState(false);
+  const [submitting,setSubmitting] = useState(false);
+  const [message,setMessage] = useState("Quieres guardar esta factura?");
+  const [completed,setCompleted] = useState(false);
     
-    /*clientes*/
-    const [cliente, setCliente] = useState([]);
-    const [update, setUpdate] = useState(true);
+  /*clientes*/
+  const [cliente, setCliente] = useState([]);
+  const [update, setUpdate] = useState(true);
 
-    useEffect(()=>{
-        if(update){
-            getClientes().then( r =>{                
-                setUpdate(false);
-                setCliente(r.data);
-            }); 
-        }      
-    },[update]);
-    useEffect(() => {
-        return () => {
-          console.log("cleaned up");
-        };
-    }, []);
-
-    function hideModal(){
-      setShowmodal(false);
-    }
-
-    function showModal(){
-      setShowmodal(true);
-    }      
-
-    function saveFactura(){
-
-      if(!completed){
-        setSubmitting(true);
-        setMessage("Enviando...");
-
-        if(id){
-          console.log("entro a id")
-          putFactura(id,values).then(value=>{
-            setCompleted(true);
-            setSubmitting(false);
-            if(value.data.successed){
-              setMessage("Factura Actualizada");          
-            }else{
-              setMessage("Esta Factura ya tiene asignado este cliente ");
-            }
-          })
-        }else{
-          console.log("entro a POSt")
-          postFactura(values).then(value=>{
-            console.log(value.data.FechaCreacion);
-            setCompleted(true);
-            setSubmitting(false);
-            if(value.data.successed){
-              setMessage("Factura Guardada con Exito!");          
-            }else{
-              setMessage("Su Factura no ha sido Guardada :(");
-            }
-          })
-        }
-      }else{
-        setCompleted(false);
-        setMessage("Do you want to save?");
-        hideModal();
-      }
-      
-    }
-
-    const {id} = useParams();
-     
-    const states = useState({
-      FechaCreacion:"",
-      FechaLimite:"",
-      IDEmpleado:0,
-      TipoFactura:1,
-      IDCliente:"",
-      IDProveedor:"",
-      detalleFactura:[]
-    });     
-
-    const {
-      values,      
-      handleChange,
-      updateValues      
-    } = useFormHelper(states);
-
-    useEffect(()=>{
-      getProductos().then(c => {
-        setProd(c.data);
-      });
-    },[]);
-
-    useEffect(() => {
+  useEffect(()=>{
+      if(update){
+          getClientes().then( r =>{                
+              setUpdate(false);
+              setCliente(r.data);
+          }); 
+      }      
+  },[update]);
+  useEffect(() => {
       return () => {
         console.log("cleaned up");
       };
-    }, []);
+  }, []);
+
+  function hideModal(){
+    setShowmodal(false);
+  }
+  function showModal(){
+    setShowmodal(true);
+  }      
+  function saveFactura(){
+    if(!completed){
+      setSubmitting(true);
+      setMessage("Enviando...");
+      if(id){
+        console.log("entro a id")
+        putFactura(id,values).then(value=>{
+          setCompleted(true);
+          setSubmitting(false);
+          if(value.data.successed){
+            setMessage("Factura Actualizada");          
+          }else{
+            setMessage("Esta Factura ya tiene asignado este cliente ");
+          }
+        })
+      }else{
+        console.log("entro a POSt");
+        console.log(factura);
+        postFactura(factura).then(value=>{
+          setCompleted(true);
+          setSubmitting(false);
+          if(value.data.Successed){
+            setMessage("Su factura no fue guardada");          
+          }else{
+            setMessage("Su Factura fue guardada con Exito! :)");
+          }
+        })
+      }
+    }else{
+      setCompleted(false);
+      setMessage("Do you want to save?");
+      hideModal();
+    }
+    
+  }
+
+    
+  const {id} = useParams();
+     
+  const states = useState({
+    FechaCreacion:"",
+    //FechaLimite:"",
+    //IDEmpleado:"",
+    //TipoFactura:"",
+    //IDCliente:"",
+    //IDProveedor:"",
+    //detalleFactura:[]
+   
+  });     
+
+  const {
+    values,      
+    handleChange     
+  } = useFormHelper(states);
+
+  useEffect(()=>{
+    getProductos().then(c => {
+      setProd(c.data);
+    });
+  },[]);
+
+  useEffect(() => {
+    return () => {
+      console.log("cleaned up");
+    };
+  }, []);
   
 
-    return(
+  return(
 
       
     <div>
@@ -161,10 +187,10 @@ const FactForm:React.FC = () => {
                     <Row className="align-items-center ml-5 pl-4">
                         <Col>
                             <Form.Group controlId="slc-categoria-producto">
-                              <label htmlFor="exampleFormControlSelect1">Productos</label>
+                              <label htmlFor="select_products">Productos</label>
                               <select 
                                 className="form-control" 
-                                id="exampleFormControlSelect1"
+                                id="select_products"
                                 onChange={handleChange}
                                 name="detalleFactura"
                                 value={values.detalleFactura}
@@ -210,25 +236,24 @@ const FactForm:React.FC = () => {
                                 <Form.Label><strong>Teléfono:</strong> 9968-1203</Form.Label>
                             </Form.Group>
                             <Form.Group>
-                              <label htmlFor="form">Fecha Creacion</label>
+                              <label htmlFor="fechaCreacion">Fecha Creacion</label>
                               <input 
                                 type="date" 
                                 className="form-control" 
-                                id="fechaCreacion"
+                                id="FechaCreacion"
                                 name="FechaCreacion"
-                                onChange={handleChange}
-                                defaultValue={values.FechaCreacion}
+                                onChange={handleFactura}
                               />
                             </Form.Group>
                             <Form.Group>
-                              <label htmlFor="formGroupExampleInput">Fecha Limite</label>
+                              <label htmlFor="Input_FechaLimite">Fecha Limite</label>
                               <input 
                                 type="date" 
                                 className="form-control" 
-                                id="fechaLimite"
+                                id="Input_FechaLimite"
                                 name="FechaLimite"
-                                onChange={handleChange}
-                                defaultValue={values.FechaLimite}
+                                onChange={handleFactura}
+
                               />
                             </Form.Group>
                         </Col>
@@ -238,9 +263,8 @@ const FactForm:React.FC = () => {
                               <select 
                                   className="form-control" 
                                   id="Clientes"
-                                  onChange={handleChange}
+                                  onChange={handleFactura}
                                   name="IDCliente"
-                                  value={values.name}
                               >
                                   <option value="">choose an option</option>
                                   {cliente.map((cl: ICliente, index)=>(
@@ -326,6 +350,7 @@ const FactForm:React.FC = () => {
             </div>
         </Card>
         
+
     </Container>
       </div>
 

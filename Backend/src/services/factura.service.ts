@@ -73,7 +73,8 @@ export class FacturaService{
             @TipoFactura =${f.TipoFactura},
             @IDCliente=${f.IDCliente}
         `);
-        if (result[0].successed===1) {
+        res.status(201).json(result);
+        /*if (result[0].successed===1) {
             console.log("entro al if");
             for (const detalle in f.detalleFactura) {
                 let r : IResultado[] = await getConnection().query(`
@@ -84,11 +85,7 @@ export class FacturaService{
                 `);
                 console.log("registro numero : "+detalle+" insertado")
             }
-        }
-
-        res.status(201).json(result);
-        
-        
+        }*/
     }
 
     public async getFacturasPorCobrar( req:Request, res:Response){
