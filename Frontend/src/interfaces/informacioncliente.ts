@@ -1,5 +1,7 @@
 export interface IClienteInformacion{
     
+    IDCliente: number
+
     NombreCliente:string
 
     ApellidoCliente: string 

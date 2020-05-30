@@ -42,14 +42,9 @@ export class ProveedorService{
         try {
             await getConnection().createQueryBuilder().update(Proveedor)
             .set({
-                NombreProveedor: req.body.NombreProveedor,
                 NombreContacto: req.body.NombreContacto,
-                RTN: req.body.RTN,
                 EmailProveedor: req.body.EmailProveedor,
                 Telefono: req.body.Telefono,
-                Pais: req.body.Pais,
-                City: req.body.City,
-                CodigoPostal: req.body.CodigoPostal,
                 Direccion: req.body.Direccion
                 
             })

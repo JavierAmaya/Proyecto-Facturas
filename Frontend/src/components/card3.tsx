@@ -33,15 +33,15 @@ const Card3 : React.FC<ICardPropsProductos> = ({name,id,precio,url,rtn, propsPro
                 <Card.Title>{name}</Card.Title>
                     {(nombreContacto) && (pais) && (
                         <Card.Text>
-                           <small><p className="card-text"><strong>nombreContacto:</strong>{nombreContacto}</p></small>
-                           <small><p className="card-text"><strong>pais:</strong>{pais}</p></small>
-                           <small><p className="card-text"><strong>telefono:</strong>{telefono}</p></small>
+                           <small><p className="card-text"><strong>Contacto:</strong>{nombreContacto}</p></small>
+                           <small><p className="card-text"><strong>País:</strong>{pais}</p></small>
+                           <small><p className="card-text"><strong>Teléfono:</strong>{telefono}</p></small>
                         </Card.Text>
                     )} 
                     
                     {(telefono) && (rtn) && (
                      <Card.Text>
-                        <small><p className="card-text"><strong>Telefono:</strong>{telefono}</p></small>
+                        <small><p className="card-text"><strong>Teléfono:</strong>{telefono}</p></small>
                         <small><p className="card-text"><strong>RTN:</strong>{rtn}</p></small>
                      </Card.Text>
                     )} 
@@ -51,7 +51,7 @@ const Card3 : React.FC<ICardPropsProductos> = ({name,id,precio,url,rtn, propsPro
                         <small><p className="card-text"><strong>Precio:</strong> L. {precio}.00</p></small>
                     )}
                     {(descripcion) && (
-                        <small><p className="card-text"><strong>Descripcion:</strong>{descripcion}</p></small>
+                        <small><p className="card-text"><strong>Descripción:</strong>{descripcion}</p></small>
                     )}
 
 
