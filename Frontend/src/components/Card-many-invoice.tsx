@@ -1,6 +1,7 @@
 import React from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import {Link} from "react-router-dom";
 import "../css/main.css";
 interface ImoduloConta{
     numero:Number
@@ -16,8 +17,8 @@ interface ImoduloConta{
 const Many_invoice : React.FC<ImoduloConta> = ({numero,Cliente,Factura,FechaEmitida,FechaLimite,Estado,Monto,apellido})=>(
     <tr>
         <td>{numero}</td>
-<td><Button id="ButtonListInvoice" href="/Contabilidad/FacturasCobrar/" variant="light" size="lg">{Cliente} {apellido}</Button></td>
-        <td><Button id="ButtonListInvoice" href="/Contabilidad/FacturasCobrar/" variant="light" size="lg">{Factura}</Button></td>
+        <td><Link to={`/Contabilidad/FacturasCobrar/${Factura}`}><Button id="ButtonListInvoice" href="/Contabilidad/FacturasCobrar/" variant="light" size="lg">{Cliente} {apellido}</Button></Link></td>
+        <td><Link to={`/Contabilidad/FacturasCobrar/${Factura}`}><Button id="ButtonListInvoice" href="/Contabilidad/FacturasCobrar/:id" variant="light" size="lg">{Factura}</Button></Link></td>
         <td>{FechaEmitida}</td>
         <td>{FechaLimite}</td>
         <td>

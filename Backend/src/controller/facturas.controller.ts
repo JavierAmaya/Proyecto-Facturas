@@ -20,6 +20,13 @@ export class FacturaController{
         .get(this.factura_service.getFacturasPorCobrar);
         this.app.route("/Contabilidad/FacturasPagar")
         .get(this.factura_service.getFacturasPorPagar);
+
+        this.app.route("/contabilidad/facturasPagar/:id")
+        .get(this.factura_service.facturaPagarDetalle);
+
+        this.app.route("/contabilidad/facturasPagarProducto/:id")
+        .get(this.factura_service.facturaPagarProducto);
+
         this.app.route("/factura")
         .post(this.factura_service.nuevaFactura);
 

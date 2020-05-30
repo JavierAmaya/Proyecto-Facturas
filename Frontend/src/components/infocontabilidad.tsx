@@ -26,9 +26,9 @@ const InfoMenuFacturas: React.FC = () =>(
                         </Breadcrumb>
                     </Card>
                     </Col>
-                    <ModuloConta title="Facturas De Cliente" NFacturas={25} MFacturas={30875} NFactPend={5} CFactPend={10587} imagen={ImagePOrcobrar} Url="Contabilidad/FacturasCobrar" encabezado="Venta"/>
-                    <ModuloConta title="Facturas De Proveedor" NFacturas={7} MFacturas={75875} NFactPend={6} CFactPend={40870} imagen={ImagePorPagar} Url="Contabilidad/FacturasPagar" encabezado="Compra"/>
-                    <ModuloConta title="Prestamo Bancos" NFacturas={0} MFacturas={0} NFactPend={0} CFactPend={0} imagen={0} Url="Contabilidad/Factura" encabezado="/Banca"/>
+                    <ModuloConta title="Facturas De Cliente" NFacturas={25} MFacturas={30875} NFactPend={5} CFactPend={10587} imagen={ImagePOrcobrar} Url="/Contabilidad/FacturasCobrar"  encabezado="Venta"/>
+                    <ModuloConta title="Facturas De Proveedor" NFacturas={7} MFacturas={75875} NFactPend={6} CFactPend={40870} imagen={ImagePorPagar} Url="/Contabilidad/FacturasPagar"  encabezado="Compra"/>
+                    <ModuloConta title="Prestamo Bancos" NFacturas={0} MFacturas={0} NFactPend={0} CFactPend={0} imagen={0} Url="/Contabilidad/Factura"  encabezado="/Banca"/>
                 </Row>
             </Container>
         </div>

@@ -14,7 +14,8 @@ import ModContabilidad from "./views/contabilidad";
 import listado_FacturasPorCobrar from "./views/listado_FacturasPorCobrar";
 import listado_FacturasPorPagar from "./views/listado_FacturasPorPagar";
 import RegistrarFacturaCobrar from "./views/registrarFacCobrar";
-import RegistrarFacturaPagar from "./views/registrarFacPagar";
+import RegistrarFacturaPagars from "./views/registrarFacPagars";
+import ModDellateFacturaPagar from "./views/infoFacturaPagar";
 
 const App:React.FC = () => (
   <BrowserRouter>
@@ -26,10 +27,11 @@ const App:React.FC = () => (
       <Route path="/main" exact component = {Main}/> 
       <Route path="/Prueba" exact component = {Prueba}/>
       <Route path="/Contabilidad" exact component = {ModContabilidad}/>
-      <Route path="/Contabilidad/FacturasCobrar" exact component = {listado_FacturasPorCobrar}/>
-      <Route path="/Contabilidad/FacturasPagar" exact component = {listado_FacturasPorPagar}/>
-      <Route path="/contabilidad/FacturasCobrar/Registrar" exact component = {RegistrarFacturaCobrar}/>
-      <Route path="/contabilidad/FacturasPagar/Registrar" exact component = {RegistrarFacturaPagar}/>
+      <Route path="/Contabilidad/facturasCobrar" exact component = {listado_FacturasPorCobrar}/>
+      <Route path="/Contabilidad/facturasPagar" exact component = {listado_FacturasPorPagar}/>
+      <Route path="/Contabilidad/facturasPagar/:id" exact component = {ModDellateFacturaPagar}/>
+      <Route path="/contabilidad/facturasCobrar/registrar" exact component = {RegistrarFacturaCobrar}/>
+      <Route path="/contabilidad/facturasPagar/registrar" exact component = {RegistrarFacturaPagars}/>
     </Switch>
   </BrowserRouter>
 )

@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import FormControl from 'react-bootstrap/FormControl';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import "../css/main.css";
+import {Link} from "react-router-dom";
 const ManyInvoice: React.FC = () =>{
     return(
         <div>
@@ -12,9 +13,11 @@ const ManyInvoice: React.FC = () =>{
                 <Button className="col-2" variant="light" id="ButtonSearch">Search</Button>
             </Form>
             <div className="mb-2">
+            <Link to="/contabilidad/FacturasCobrar/Registrar">
                 <Button variant="primary" size="lg" id="CrearObjecto">
                 Agregar Factura
                 </Button>
+            </Link>
             </div>
             <Breadcrumb  id="BreadcrumbListInvoice" >
                 <Breadcrumb.Item href="/Contabilidad">Contabilidad</Breadcrumb.Item>

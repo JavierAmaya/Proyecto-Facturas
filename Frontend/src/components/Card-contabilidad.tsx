@@ -45,7 +45,7 @@ const ModuloConta : React.FC<ImoduloConta> = ({imagen,title,encabezado,NFacturas
                         </div>
                     </Card>
                     <Card className="">
-                    <Link to="/ss"><Button className="col-12" variant="secondary">Nueva Factura</Button></Link>
+                    <Link to={`${Url}/Registrar`}><Button className="col-12" variant="secondary">Nueva Factura</Button></Link>
                     </Card>
                 </Button>
             </Link>

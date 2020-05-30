@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
 import NavBarO from "../components/navbarO"
-import CardRegistrarFactura from "../components/cardFacturaPagar";
+import CardRegistrarFacturas from "../components/cardFacturaPagar";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -10,7 +10,7 @@ import Button from "react-bootstrap/Button";
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 
-const RegistrarFacturaPagar:React.FC = () => {
+const RegistrarFacturaPagars:React.FC = () => {
     
     return(
         <div>
@@ -20,7 +20,7 @@ const RegistrarFacturaPagar:React.FC = () => {
                     <TabVertical/> 
                 </Col>
                 <Col className="background" md="10" style={{overflow:'auto',height: '842px'}}>
-                    <CardRegistrarFactura/>
+                    <CardRegistrarFacturas/>
                 </Col>
             </Row>
             <Footer/>
@@ -28,4 +28,4 @@ const RegistrarFacturaPagar:React.FC = () => {
     );
 }
 
-export default RegistrarFacturaPagar;
+export default RegistrarFacturaPagars;

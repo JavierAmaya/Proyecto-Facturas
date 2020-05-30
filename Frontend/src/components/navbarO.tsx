@@ -12,15 +12,15 @@ import cambiodeusuario from "../img/cambio-de-usuario2.png";
 
 const NavBarO: React.FC = () => (
     <Navbar className="navbar" variant="dark" expand="lg">
-        <Navbar.Brand href="Main">
+        <Navbar.Brand href="/Main">
               <img alt="" src={logo} width="30" height="30" className="d-inline-block align-top"/>{' '}
             Ferreteria La Unión
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-            <Nav.Link href="Inventario">Inventario</Nav.Link>
-            <Nav.Link href="Contabilidad">Contabilidad</Nav.Link>
+            <Nav.Link href="/Inventario">Inventario</Nav.Link>
+            <Nav.Link href="/Contabilidad">Contabilidad</Nav.Link>
             <NavDropdown title="Más" id="basic-nav-dropdown">
                 <NavDropdown.Item href="#action/3.1"><img src={cambiodeusuario} alt=""/>{' '}Cambiar Usuario</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2"><img src={cerrar_seccion} alt=""/>{' '}Cerrar Sesión</NavDropdown.Item>
