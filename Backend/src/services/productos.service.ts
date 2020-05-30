@@ -34,10 +34,7 @@ export class ProductoService{
             await getConnection().createQueryBuilder().update(Producto)
             .set({
                 NameProducto: req.body.NameProducto,
-                Descripcion: req.body.Descripcion,
-                IDProveedor: req.body.IDProveedor,
                 IDCategoria: req.body.IDCategoria,
-                ValorCompra: req.body.ValorCompra,
                 ValorVenta: req.body.ValorVenta
             })
             .where("IDProducto = :id", {id: req.params.id})
@@ -72,6 +69,7 @@ export class ProductoService{
         const result: IResultado[] = await getConnection().query(`EXEC pFacturas.SP_DELETE_PRODUCT
         @IDProducto = ${req.params.id}`);
         res.status(201).json(result[0]);
+        console.log(result[0]);
     }
 
     //Lacho

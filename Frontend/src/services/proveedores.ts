@@ -20,3 +20,20 @@ export function addProveedor(data:any): Promise<any>{
         .catch(error => resolve( {data: {successed:false}} ) );
     });
 }
+
+export function updateProveedor(id:string,data:any): Promise<any>{
+    return new Promise<any>( resolve => {
+        axios.put(`${query}/proveedor/${id}`,data)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false}} ) );
+    });
+}
+
+export function deleteProveedor(id:string): Promise<any> {
+    return new Promise<any>(resolve=>{
+        axios.delete(`${query}/proveedor/${id}`)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false}} ) );
+    });
+    
+}

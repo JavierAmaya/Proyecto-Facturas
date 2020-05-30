@@ -6,8 +6,12 @@ export function getClientes(){
     return axios.get(`${query}/clientes`);
 }
 
-export function updateProduct() {
-    //return axios.put()
+export function updateCliente(id:string,data:any): Promise<any>{
+    return new Promise<any>( resolve => {
+        axios.put(`${query}/cliente/${id}`,data)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false}} ) );
+    });
 }
 
 export function getInformacionClientes(id:string): Promise<any> {
@@ -24,4 +28,13 @@ export function addCliente(data:any): Promise<any>{
         .then(result => resolve(result) )
         .catch(error => resolve( {data: {successed:false}} ) );
     });
+}
+
+export function deleteCliente(id:string): Promise<any> {
+    return new Promise<any>(resolve=>{
+        axios.delete(`${query}/cliente/${id}`)
+        .then(result => resolve(result) )
+        .catch(error => resolve( {data: {successed:false}} ) );
+    });
+    
 }

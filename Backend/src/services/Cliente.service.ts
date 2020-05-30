@@ -17,6 +17,7 @@ export class ClienteService{
         EXEC pFacturas.SP_DELETE_CLIENTE
         @IDCliente = ${req.params.id} `);
         res.status(201).json(result[0]); 
+        console.log(result[0]);
     }
     public async createOne(req: Request , res:Response){
        
@@ -42,9 +43,6 @@ export class ClienteService{
         try {
             await getConnection().createQueryBuilder().update(Cliente)
             .set({
-                NombreCliente:req.body.NombreCliente,
-                ApellidoCliente:req.body.ApellidoCliente,
-                RTN:req.body.RTN,
                 EmailCliente:req.body.EmailCliente,
                 Telefono:req.body.Telefono,
                 Direccion1:req.body.Direccion1,

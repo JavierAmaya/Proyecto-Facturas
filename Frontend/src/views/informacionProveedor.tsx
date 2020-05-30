@@ -5,6 +5,11 @@ import CardInformacionProveedor from "../components/cardInfoProveedor";
 import {getInformacionProveedor} from "../services/proveedores";
 import {IProveedorInformacion} from "../interfaces/informacionproveedor";
 import {useParams} from "react-router-dom";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import TabVertical from '../components/tabVertical';
+import Container from 'react-bootstrap/Container';
+import Footer from '../components/footer';
 
 const InformacionProveedor : React.FC = () => {
 
@@ -30,22 +35,30 @@ const InformacionProveedor : React.FC = () => {
      return(
         <div>
             <NavBarO/>
-        
-            {detalleProveedor.map((prov: IProveedorInformacion , index)=>(
-                <CardInformacionProveedor
-                NombreProveedor = {prov.NombreProveedor}
-                NombreContacto= {prov.NombreContacto}
-                EmailProveedor = {prov.EmailProveedor}
-                RTN = {prov.RTN}
-                Telefono = {prov.Telefono}
-                Pais = {prov.Pais}
-                City = {prov.City}
-                CodigoPostal = {prov.CodigoPostal}
-                Direccion = {prov.Direccion}
-                CantidadProductos = {prov.CantidadProductos}
-                />
-            ))}
-       
+            <Row>
+                <Col className="backgroundTap" md="2">
+                        <TabVertical/> 
+                </Col>
+                <Col className="background">
+                    <Container className="mb-4 ">
+                        {detalleProveedor.map((prov: IProveedorInformacion , index)=>(
+                            <CardInformacionProveedor
+                            NombreProveedor = {prov.NombreProveedor}
+                            NombreContacto= {prov.NombreContacto}
+                            EmailProveedor = {prov.EmailProveedor}
+                            RTN = {prov.RTN}
+                            Telefono = {prov.Telefono}
+                            Pais = {prov.Pais}
+                            City = {prov.City}
+                            CodigoPostal = {prov.CodigoPostal}
+                            Direccion = {prov.Direccion}
+                            CantidadProductos = {prov.CantidadProductos}
+                            />
+                        ))}
+                    </Container>
+                </Col>
+            </Row>
+            <Footer/>
     </div>
     );
 };

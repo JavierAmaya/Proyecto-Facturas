@@ -104,6 +104,7 @@ function ModalProducto() {
                     <Form.Label>Proveedor:</Form.Label>
                     <select className="form-control" name="IDProveedor" defaultValue={values.correo} 
                         onChange={handleChange}>
+                          <option value="">Selecciona un proveedor</option>
                       {proveedores.map( (proveedores:IProveedor) => (
                         <option value={proveedores.IDProveedor} key={proveedores.IDProveedor} >{proveedores.NombreProveedor}</option>
                       ) )}
@@ -113,6 +114,7 @@ function ModalProducto() {
                     <Form.Label>Categoria:</Form.Label>
                     <select className="form-control" name="IDCategoria" defaultValue={values.correo} 
                         onChange={handleChange}>
+                          <option value="">Seleccione una categoria</option>
                       {categorias.map( (categorias:ICategorias) => (
                           <option value={categorias.IDCategoria} key={categorias.IDCategoria} >{categorias.NameCategoria}</option>
                         ) )}

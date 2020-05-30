@@ -5,6 +5,11 @@ import CardInformacion from "../components/cardInformacion";
 import {getDetalleProducto} from "../services/productos";
 import {IdetalleProducto} from "../interfaces/detalleproducto";
 import {useParams} from "react-router-dom";
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import TabVertical from '../components/tabVertical';
+import Container from 'react-bootstrap/Container';
+import Footer from '../components/footer';
 
 const DetalleInformacion : React.FC = () => {
     
@@ -30,16 +35,24 @@ const DetalleInformacion : React.FC = () => {
     return(
     <div>
         <NavBarO/>
-        
-        {detalleProducto.map((pro: IdetalleProducto, index)=>(
-            <CardInformacion 
-              NameProducto = {pro.NameProducto}
-              NombreProveedor= {pro.NombreProveedor}
-              NameCategoria = {pro.NameCategoria}
-              ValorVenta = {pro.ValorVenta}
-            />
-        ))}
-       
+        <Row>
+                <Col className="backgroundTap" md="2">
+                        <TabVertical/> 
+                </Col>
+                <Col className="background">
+                    <Container className="mb-4 ">
+                        {detalleProducto.map((pro: IdetalleProducto, index)=>(
+                            <CardInformacion 
+                            NameProducto = {pro.NameProducto}
+                            NombreProveedor= {pro.NombreProveedor}
+                            NameCategoria = {pro.NameCategoria}
+                            ValorVenta = {pro.ValorVenta}
+                            />
+                        ))}
+                    </Container>
+                </Col>
+            </Row>
+            <Footer/>
     </div>
     );
 
