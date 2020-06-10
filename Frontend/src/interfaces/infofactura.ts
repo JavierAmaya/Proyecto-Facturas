@@ -7,6 +7,7 @@ export interface IFactura{
     IDCliente? : number
     IDProveedor?: number
     detalleFactura : IDetalleFactura[]
+    precio?:number
 }
 
 

@@ -1,6 +1,6 @@
 import React,{useState,useEffect} from "react";
 
-import {getProductos} from "../services/productos";
+import {getProductos,getDetalleProducto} from "../services/productos";
 import {postFactura, putFactura} from "../services/factura"
 import {IProductos} from "../interfaces/productos";
 import ModalFactura from "./modalFactura"
@@ -19,6 +19,7 @@ import {IDetalleFactura} from "../interfaces/detalleFactura"
 
 
 import useFormHelper from "../helpers/useFormHelpers";
+import { number } from "prop-types";
 
 const FactForm:React.FC = () => {
   const dtf: IDetalleFactura[] = [];
@@ -32,23 +33,6 @@ const FactForm:React.FC = () => {
     detalleFactura: dtf
   }
   const [factura , setFactura]=useState(f);
-
-  function handleFactura(e:any) {
-    console.log(factura);
-    console.log(e.target.name);
-    if(e.target.name == "FechaCreacion" ){
-      factura.FechaCreacion = e.target.value;
-    }else if (e.target.name == "FechaLimite"){
-      factura.FechaLimite = e.target.value;
-    }else if (e.target.name == "IDCliente"){
-      factura.IDCliente = e.target.value;
-      factura.TipoFactura = 1;
-    }
-
-    setFactura(factura);
-    console.log(e.target.name);
-    console.log(factura);
-  }
   
   const [productos,setProd] = useState([]);
   const [cleanUp,setCleanUp] = useState(true);
@@ -62,6 +46,43 @@ const FactForm:React.FC = () => {
   /*clientes*/
   const [cliente, setCliente] = useState([]);
   const [update, setUpdate] = useState(true);
+
+  /*Factura*/
+
+  const [aux, setAux] = useState({IDproducto:number, Cantidad:number});
+  const [precio, setPrecio] = useState();
+  const [productoID, setProductoID]= useState();
+
+  function handleFactura(e:any) {
+    console.log(factura);
+    console.log(e.target.name);
+    if(e.target.name == "FechaCreacion" ){
+      factura.FechaCreacion = e.target.value;
+    }else if (e.target.name == "FechaLimite"){
+      factura.FechaLimite = e.target.value;
+    }else if (e.target.name == "IDCliente"){
+      factura.IDCliente = e.target.value;
+      factura.TipoFactura = 1;
+    }else if (e.target.name == "detalleFactura"){
+      console.log("IDproducto");
+      console.log(e.target.value);
+      setDetalleFactura(e.target.value);
+    }
+
+    setFactura(factura);
+    console.log(e.target.name);
+    console.log(factura);
+  }
+
+  function setDetalleFactura(IDProducto:string) {
+    console.log(getDetalleProducto(IDProducto));
+    getDetalleProducto(IDProducto).then(p =>{
+      console.log("Este es valor de venta");
+      console.log(p.data[0].ValorVenta);
+      setPrecio(p.data[0].ValorVenta);
+      setProductoID(p.data[0].ValorVenta);
+    })
+  }
 
   useEffect(()=>{
       if(update){
@@ -191,9 +212,8 @@ const FactForm:React.FC = () => {
                               <select 
                                 className="form-control" 
                                 id="select_products"
-                                onChange={handleChange}
+                                onChange={handleFactura}
                                 name="detalleFactura"
-                                value={values.detalleFactura}
                               >
                                 <option value="">choose an option</option>
                                 {productos.map( (productos:IProductos) => (
@@ -205,7 +225,7 @@ const FactForm:React.FC = () => {
                         <Col>
                             <Form.Group>
                                 <Form.Label>Precio:</Form.Label>
-                                <Form.Control type="text" placeholder="Precio" className="required"/>
+                                <Form.Control type="text" placeholder={precio} className="required"/>
                             </Form.Group>
                         </Col>
                         <Col>
